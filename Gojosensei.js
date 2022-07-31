@@ -245,14 +245,14 @@ const reply = (teks) => {
 	  //antilink\\
         if (db.data.chats[m.chat].antilink) {
         if (budy.match(`chat.whatsapp.com`)) {
-        reply(`「 ANTI LINK 」\n\ndu wurdest beim Senden eines Gruppenlinks erkannt, es tut uns leid, dass Sie gekickt werden !`)
-        if (!isBotAdmins) return reply(`Bin kein Admin, wie könnte ich jemanden kicken, der einen Link sendet 😒`)
+        reply(`「 ANTI LINK 」\n\nSie wurden beim Senden eines Gruppenlinks erkannt, es tut uns leid, dass Sie gekickt werden!`)
+        if (!isBotAdmins) return reply(`Ich bin kein Admin, wie könnte ich jemanden kicken, der einen Link sendet 😒`)
         let gclink = (`https://chat.whatsapp.com/`+await GojoMdNx.groupInviteCode(m.chat))
         let isLinkThisGc = new RegExp(gclink, 'i')
         let isgclink = isLinkThisGc.test(m.text)
         if (isgclink) return reply(`Gruppe ist mit Anti-Link installiert, aber ich werde dich nicht rausschmeißen , weil du diesen Gruppenlink gesendet hast️`)
-        if (isAdmins) return reply(`Gruppr ist mit Anti-Link installiert, aber ich werde dich nicht rausschmeißen 😉, weil du ein Admin der gruppe bist️`)
-        if (isCreator) return reply(`Gruppe ist mit Anti-Link installiert, aber ich werde dich nicht kicken 😉, weil du mein Besitzer bist Hahahahah, du denkst, ich werde dich verraten Huh𖡝`)
+        if (isAdmins) return reply(`Group ist mit Anti-Link installiert, aber ich werde dich nicht kicken, weil du ein Admin der Group bist️`)
+        if (isCreator) return reply(`Group ist mit Anti-Link installiert, aber ich werde dich nicht kicken , weil du mein Besitzer bist Hahahahah, du denkst, ich werde dich verraten`)
         GojoMdNx.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
         }
         }
@@ -326,7 +326,7 @@ const reply = (teks) => {
             }
             let isWin = room.terjawab.length === room.terjawab.filter(v => v).length
             let caption = `
-Answer The Following Questions :\n${room.soal}\n\n\nThere Is ${room.jawaban.length} Answer ${room.jawaban.find(v => v.includes(' ')) ? `(Einige Antworten haben Leerzeichen)` : ''}
+Answer The Following Questions :\n${room.soal}\n\n\nThere Is ${room.jawaban.length} Answer ${room.jawaban.find(v => v.includes(' ')) ? `(Some Answers Have Spaces)` : ''}
 ${isWin ? `Alle Antworten beantwortet` : isSurender ? 'Aufgeben!' : ''}
 ${Array.from(room.jawaban, (jawaban, index) => {
         return isSurender || room.terjawab[index] ? `(${index + 1}) ${jawaban} ${room.terjawab[index] ? '@' + room.terjawab[index].split('@')[0] : ''}`.trim() : false
@@ -340,36 +340,36 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             kuis = true
             jawaban = tebaklagu[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
-                await GojoMdNx.sendButtonText(m.chat, [{ buttonId: 'guess song', buttonText: { displayText: 'Guess The Song' }, type: 1 }], `🎮 Guess The Music 🎮\n\nKorrekte Antwort 🎉\n\nWillst du wieder spielen? Drücken Sie den Knopf unten`, GojoMdNx.user.name, m)
+                await GojoMdNx.sendButtonText(m.chat, [{ buttonId: 'guess song', buttonText: { displayText: 'Guess The Song' }, type: 1 }], `🎮 Guess The Music 🎮\n\nCorrect Answer 🎉\n\nWillst du wieder spielen? Drücken Sie die Schaltfläche unten`, GojoMdNx.user.name, m)
                 delete tebaklagu[m.sender.split('@')[0]]
-            } else reply('*Falsche Antwort!*')
+            } else reply('*Wrong Answer!*')
         }
 
         if (kuismath.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
             kuis = true
             jawaban = kuismath[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
-                await reply(`🎮 Math Quiz 🎮\n\nKorrekte Antwort 🎉\n\nWillst du wieder spielen? Sende ${prefix}math mode`)
+                await reply(`🎮 Math Quiz 🎮\n\nCorrect Answer 🎉\n\nWillst du wieder spielen? Senden ${prefix}math mode`)
                 delete kuismath[m.sender.split('@')[0]]
-            } else reply('*Falsche Antwort!*')
+            } else reply('*Wrong Answer!*')
         }
 
         if (tebakgambar.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
             kuis = true
             jawaban = tebakgambar[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
-                await GojoMdNx.sendButtonText(m.chat, [{ buttonId: 'guess picture', buttonText: { displayText: 'Guess The Picture' }, type: 1 }], `🎮 Guess The Picture 🎮\n\nKorrekte Antwort 🎉\n\nWillst du wieder spielen? Drücken Sie den Knopf unten`, GojoMdNx.user.name, m)
+                await GojoMdNx.sendButtonText(m.chat, [{ buttonId: 'guess picture', buttonText: { displayText: 'Guess The Picture' }, type: 1 }], `🎮 Guess The Picture 🎮\n\nCorrect Answer 🎉\n\nWillst du wieder spielen? Drücken Sie die Schaltfläche unten`, GojoMdNx.user.name, m)
                 delete tebakgambar[m.sender.split('@')[0]]
-            } else reply('*Falsche Antwort!*')
+            } else reply('*Wrong Answer!*')
         }
 
         if (tebakkata.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
             kuis = true
             jawaban = tebakkata[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
-                await GojoMdNx.sendButtonText(m.chat, [{ buttonId: 'guess word', buttonText: { displayText: 'Guess The Word' }, type: 1 }], `🎮 Guess The Word 🎮\n\nKorrekte Antwort 🎉\n\nWillst du wieder spielen? Drücken Sie den Knopf unten`, GojoMdNx.user.name, m)
+                await GojoMdNx.sendButtonText(m.chat, [{ buttonId: 'guess word', buttonText: { displayText: 'Guess The Word' }, type: 1 }], `🎮 Guess The Word 🎮\n\nCorrect Answer 🎉\n\nWillst du wieder spielen? Drücken Sie die Schaltfläche unten`, GojoMdNx.user.name, m)
                 delete tebakkata[m.sender.split('@')[0]]
-            } else reply('*Falsche Antwort!*')
+            } else reply('*Wrong Answer!*')
         }
 
         if (caklontong.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
@@ -377,37 +377,37 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             jawaban = caklontong[m.sender.split('@')[0]]
 	    deskripsi = caklontong_desk[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
-                await GojoMdNx.sendButtonText(m.chat, [{ buttonId: 'guess blank', buttonText: { displayText: 'Guess The Blank' }, type: 1 }], `🎮 Guess The Blank 🎮\n\nKorrekte Antwort 🎉\n*${deskripsi}*\n\nWillst du wieder spielen? Drücken Sie den knopf unten`, GojoMdNx.user.name, m)
+                await GojoMdNx.sendButtonText(m.chat, [{ buttonId: 'guess blank', buttonText: { displayText: 'Guess The Blank' }, type: 1 }], `🎮 Guess The Blank 🎮\n\nCorrect Answer 🎉\n*${deskripsi}*\n\nWillst du wieder spielen? Drücken Sie die Schaltfläche unten`, GojoMdNx.user.name, m)
                 delete caklontong[m.sender.split('@')[0]]
 		delete caklontong_desk[m.sender.split('@')[0]]
-            } else reply('*Falsche Antwort!*')
+            } else reply('*Wrong Answer!*')
         }
 
         if (tebakkalimat.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
             kuis = true
             jawaban = tebakkalimat[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
-                await GojoMdNx.sendButtonText(m.chat, [{ buttonId: 'guess sentence', buttonText: { displayText: 'Guess The Sentence' }, type: 1 }], `🎮 Guess The Sentence 🎮\n\nKorrekte Antwort 🎉\n\nWillst du wieder spielen? Drücken Sie den Knopf unten`, GojoMdNx.user.name, m)
+                await GojoMdNx.sendButtonText(m.chat, [{ buttonId: 'guess sentence', buttonText: { displayText: 'Guess The Sentence' }, type: 1 }], `🎮 Guess The Sentence 🎮\n\nCorrect Answer 🎉\n\nWillst du wieder spielen? Drücken Sie die Schaltfläche unten`, GojoMdNx.user.name, m)
                 delete tebakkalimat[m.sender.split('@')[0]]
-            } else reply('*Falsche Antwort!*')
+            } else reply('*Wrong Answer!*')
         }
 
         if (tebaklirik.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
             kuis = true
             jawaban = tebaklirik[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
-                await GojoMdNx.sendButtonText(m.chat, [{ buttonId: 'guess lyrics', buttonText: { displayText: 'Guess The Lyrics' }, type: 1 }], `🎮 Guess The Lyrics 🎮\n\nKorrekte Antwort 🎉\n\nWillst du wieder spielen? Drücken Sie den knopf unten`, GojoMdNx.user.name, m)
+                await GojoMdNx.sendButtonText(m.chat, [{ buttonId: 'guess lyrics', buttonText: { displayText: 'Guess The Lyrics' }, type: 1 }], `🎮 Guess The Lyrics 🎮\n\nCorrect Answer 🎉\n\nWillst du wieder spielen? Drücken Sie die Schaltfläche unten`, GojoMdNx.user.name, m)
                 delete tebaklirik[m.sender.split('@')[0]]
-            } else reply('*Falsche Antwort!*')
+            } else reply('*Wrong Answer!*')
         }
 	    
 	if (tebaktebakan.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
             kuis = true
             jawaban = tebaktebakan[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
-                await GojoMdNx.sendButtonText(m.chat, [{ buttonId: 'guess riddle', buttonText: { displayText: 'Guess The Riddle' }, type: 1 }], `🎮 Guess The Riddle 🎮\n\nKorrekte Antwort 🎉\n\nWillst du wieder spielen? Drücken Sie den knopf unten`, GojoMdNx.user.name, m)
+                await GojoMdNx.sendButtonText(m.chat, [{ buttonId: 'guess riddle', buttonText: { displayText: 'Guess The Riddle' }, type: 1 }], `🎮 Guess The Riddle 🎮\n\nCorrect Answer 🎉\n\nWillst du wieder spielen? Drücken Sie die Schaltfläche unten`, GojoMdNx.user.name, m)
                 delete tebaktebakan[m.sender.split('@')[0]]
-            } else reply('*Falsche Antwort!*')
+            } else reply('*Wrong Answer!*')
         }
         
         //TicTacToe\\
@@ -483,7 +483,7 @@ Typed *surrender* to surrender and admited defeat`
 	    let tie = false
 	    if (m.sender == roof.p2 && /^(acc(ept)?|accept|yes|okay?|reject|no|later|nope(k.)?yes|y)/i.test(m.text) && m.isGroup && roof.status == 'wait') {
 	    if (/^(reject|no|later|n|nope(k.)?yes)/i.test(m.text)) {
-	    GojoMdNx.sendTextWithMentions(m.chat, `@${roof.p2.split`@`[0]} Sich weigern Suit, Suit Abgesagt`, m)
+	    GojoMdNx.sendTextWithMentions(m.chat, `@${roof.p2.split`@`[0]} Refuse Suit, Suit Canceled`, m)
 	    delete this.suit[roof.id]
 	    return !0
 	    }
@@ -491,20 +491,20 @@ Typed *surrender* to surrender and admited defeat`
 	    roof.asal = m.chat
 	    clearTimeout(roof.waktu)
 	    //delete roof[roof.id].waktu
-	    GojoMdNx.sendText(m.chat, `Der Anzug wurde an den Chat gesendet
+	    GojoMdNx.sendText(m.chat, `Suit Wurde zum Chat gesendet
 
 @${roof.p.split`@`[0]} dan 
 @${roof.p2.split`@`[0]}
 
 Please Choose A Suit In The Respective Chat"
 Click https://wa.me/${botNumber.split`@`[0]}`, m, { mentions: [roof.p, roof.p2] })
-	    if (!roof.pilih) GojoMdNx.sendText(roof.p, `Bitte auswählen \n\nStein🗿\nPapier📄\nSchere✂️`, m)
-	    if (!roof.pilih2) GojoMdNx.sendText(roof.p2, `Please Select \n\nStien🗿\nPapier📄\nSchere✂️`, m)
+	    if (!roof.pilih) GojoMdNx.sendText(roof.p, `Please Select \n\Stein🗿\nPapier📄\nSchere✂️`, m)
+	    if (!roof.pilih2) GojoMdNx.sendText(roof.p2, `Please Select \n\nStein🗿\nPapier📄\nSchere✂️`, m)
 	    roof.waktu_milih = setTimeout(() => {
-	    if (!roof.pilih && !roof.pilih2) GojoMdNx.sendText(m.chat, `Beide Spieler wollen nicht spielen,\nSuit abgebrochen`)
+	    if (!roof.pilih && !roof.pilih2) GojoMdNx.sendText(m.chat, `Beide Spieler wollen nicht spielen,\nSuit Canceled`)
 	    else if (!roof.pilih || !roof.pilih2) {
 	    win = !roof.pilih ? roof.p2 : roof.p
-	    GojoMdNx.sendTextWithMentions(m.chat, `@${(roof.pilih ? roof.p2 : roof.p).split`@`[0]} Wähl nicht Suit, Game Over!`, m)
+	    GojoMdNx.sendTextWithMentions(m.chat, `@${(roof.pilih ? roof.p2 : roof.p).split`@`[0]} befehl nicht gewählt, Game Over!`, m)
 	    }
 	    delete this.suit[roof.id]
 	    return !0
@@ -519,13 +519,13 @@ Click https://wa.me/${botNumber.split`@`[0]}`, m, { mentions: [roof.p, roof.p2] 
 	    if (jwb && reg.test(m.text) && !roof.pilih && !m.isGroup) {
 	    roof.pilih = reg.exec(m.text.toLowerCase())[0]
 	    roof.text = m.text
-	    reply(`Du hast gewählt ${m.text} ${!roof.pilih2 ? `\n\nWaiting For The Opponent To Choose` : ''}`)
-	    if (!roof.pilih2) GojoMdNx.sendText(roof.p2, '_Der Gegner hat gewählt_\nJetzt sind Sie dran', 0)
+	    reply(`You Have Chosen ${m.text} ${!roof.pilih2 ? `\n\nWaiting For The Opponent To Choose` : ''}`)
+	    if (!roof.pilih2) GojoMdNx.sendText(roof.p2, '_The Opponent Has Chosen_\nNow It Is Your Turn', 0)
 	    }
 	    if (jwb2 && reg.test(m.text) && !roof.pilih2 && !m.isGroup) {
 	    roof.pilih2 = reg.exec(m.text.toLowerCase())[0]
 	    roof.text2 = m.text
-	    reply(`Du hast gewählt ${m.text} ${!roof.pilih ? `\n\nWaiting For The Opponent To Choose` : ''}`)
+	    reply(`You Have Chosen ${m.text} ${!roof.pilih ? `\n\nWaiting For The Opponent To Choose` : ''}`)
 	    if (!roof.pilih) GojoMdNx.sendText(roof.p, '_Der Gegner hat gewählt_\nJetzt sind Sie dran', 0)
 	    }
 	    let stage = roof.pilih
@@ -565,7 +565,7 @@ It's been ${clockString(new Date - afkTime)}
         if (db.data.users[m.sender].afkTime > -1) {
             let user = global.db.data.users[m.sender]
             reply(`
-Du bist von AFK wieder online gekommen${user.afkReason ? ' nach ' + user.afkReason : ''}
+You Came Back Online From AFK${user.afkReason ? ' after ' + user.afkReason : ''}
 In ${clockString(new Date - user.afkTime)}
 `.trim())
             user.afkTime = -1
@@ -578,45 +578,45 @@ if (q.includes('--help')) return reply(examkosong)
   if (!isInventory){ addInventori(m.sender) }
   if (!isInventoriBuruan){ addInventoriBuruan(m.sender) }
      
-     var GojoMdNx = await getBuffer(picak+`Inventar des Benutzers`)
-     let teksehmazeh = `_[ 👩🏻‍💼BENUTZER INFO👨🏻‍💼 ]_\n\n`
-     teksehmazeh += `*❤️Dein Blut* : ${getDarah(m.sender)}\n`
-     teksehmazeh += `*◻️️Dein Iron* : ${getBesi(m.sender)}\n`
-     teksehmazeh += `*🌟Dein Gold* : ${getEmas(m.sender)}\n`
-     teksehmazeh += `*💎Dein Emerald* : ${getEmerald(m.sender)}\n`
-     teksehmazeh += `*⏺️Dein Limit* : ${getLimit(m.sender)}\n`
-     teksehmazeh += `*🧪Dein Potion* : ${getPotion(m.sender)}\n\n`
+     var GojoMdNx = await getBuffer(picak+`User's Inventory`)
+     let teksehmazeh = `_[ 👩🏻‍💼INFO USER👨🏻‍💼 ]_\n\n`
+     teksehmazeh += `*❤️Your Blood* : ${getDarah(m.sender)}\n`
+     teksehmazeh += `*◻️️Your Iron* : ${getBesi(m.sender)}\n`
+     teksehmazeh += `*🌟Your Gold* : ${getEmas(m.sender)}\n`
+     teksehmazeh += `*💎Your Emerald* : ${getEmerald(m.sender)}\n`
+     teksehmazeh += `*⏺️Your Limit* : ${getLimit(m.sender)}\n`
+     teksehmazeh += `*🧪Your Potion* : ${getPotion(m.sender)}\n\n`
      teksehmazeh += `_[ 🐺HUNT RESULT🐺 ]_\n`
-     teksehmazeh += `*🐟Fische* : ${getIkan(m.sender)}\n`
-     teksehmazeh += `*🐔chicken* : ${getAyam(m.sender)}\n`
-     teksehmazeh += `*🐇hasen* : ${getKelinci(m.sender)}\n`
-     teksehmazeh += `*🐑Schaf* : ${getDomba(m.sender)}\n`
-     teksehmazeh += `*🐄Kuh* : ${getSapi(m.sender)}\n`
-     teksehmazeh += `*🐘Elefant* : ${getGajah(m.sender)}\n\n`
+     teksehmazeh += `*🐟Fish* : ${getIkan(m.sender)}\n`
+     teksehmazeh += `*🐔Chicken* : ${getAyam(m.sender)}\n`
+     teksehmazeh += `*🐇Rabbit* : ${getKelinci(m.sender)}\n`
+     teksehmazeh += `*🐑Sheep* : ${getDomba(m.sender)}\n`
+     teksehmazeh += `*🐄Cow* : ${getSapi(m.sender)}\n`
+     teksehmazeh += `*🐘Elephant* : ${getGajah(m.sender)}\n\n`
      teksehmazeh += `_*${pushname}*_`
-     await GojoMdNx.send5ButImg(from, `` + '' + teksehmazeh, `© ${footer}`, GojoMdNx, [{"urlButton": {"displayText": "YouTube📍","url": `${myweb}`}}])
+     await GojoMdNx.send5ButImg(from, `` + '' + teksehmazeh, `© ${footer}`, GojoMdNx, [{"urlButton": {"displayText": "instagram","url": `${myweb}`}}])
   }
   break
         case 'userlimit': 
 {      
-   let txt = `「 *ALLE LIMIT-BENUTZER* 」\n\n`
+   let txt = `「 *ALL LIMIT USER* 」\n\n`
      for (let i of _limit){
      txt += `➸ *ID :* @${i.id.split("@")[0]}\n➸ *Limit* : ${i.limit}\n`
      }
     reply(txt)       
   }
  break
- case 'bestenliste':
+ case 'leaderboard':
 {      
-   let txt = `「 *BESTENLISTE* 」\n\n`
+   let txt = `「 *LEADERBOARD* 」\n\n`
      for (let i of _buruan){
      txt += `➸ *ID :* ${i.id}\n`
-     txt += `*🐟Fische* : ${i.ikan}\n`
-     txt += `*🐔Huhn* : ${i.ayam}\n`
-     txt += `*🐇Hase* : ${i.kelinci}\n`
-     txt += `*🐑Schaf* : ${i.domba}\n`
-     txt += `*🐄Kuh* : ${i.sapi}\n`
-     txt += `*🐘Elefant* : ${i.gajah}\n\n`
+     txt += `*🐟Fish* : ${i.ikan}\n`
+     txt += `*🐔Chicken* : ${i.ayam}\n`
+     txt += `*🐇Rabbit* : ${i.kelinci}\n`
+     txt += `*🐑Sheep* : ${i.domba}\n`
+     txt += `*🐄Cow* : ${i.sapi}\n`
+     txt += `*🐘Elephant* : ${i.gajah}\n\n`
      }
     reply(txt)       
   }
@@ -624,7 +624,7 @@ if (q.includes('--help')) return reply(examkosong)
 case 'mining': case 'mine':{
 if (q.includes('--help')) return reply(examkosong) 
   if (!isInventory){ addInventori(m.sender) }
-  if (isCekDarah < 1) return reply(`Du bist müde!, Versuchen Sie, mit Tränken zu heilen`) 
+  if (isCekDarah < 1) return reply(`You're Tired!, Try To Heal Using Potions`) 
   let besi = [1,2,5,0,3,0,1,1,4,1,5,0,0]
   let emas = [0,1,2,3,0,0,0,1,1,0,0,2]
   let emerald = [0,0,1,0,0,1,0,2,1,0,0,1]
@@ -632,7 +632,7 @@ if (q.includes('--help')) return reply(examkosong)
   var emasnya = emas[Math.floor(Math.random() * emas.length)]  
   var emeraldnya = emerald[Math.floor(Math.random() * emerald.length)]  
   setTimeout( () => {
-  let caption = `[ MINING RESULT ]\n*Eisen* : ${besinya}\n*Gold* : ${emasnya}\n*Emerald* : ${emeraldnya}`
+  let caption = `[ MINING RESULT ]\n*Iron* : ${besinya}\n*Gold* : ${emasnya}\n*Emerald* : ${emeraldnya}`
   let buttons = [
       {
        buttonId: `${prefix + command}`, 
@@ -665,160 +665,160 @@ if (q.includes('--help')) return reply(examkosong)
  if (!isInventoriBuruan){ addInventoriBuruan(m.sender) } 
  if (!isInventoryMonay){ addInventoriMonay(m.sender) }
  if (!isInventory){ addInventori(m.sender) }
- if (!q) return reply(`Was willst du kaufen?\n\n1.potion\n2.baitfood\n3.limit\n\nExample: ${prefix + command} baitfood`)
+ if (!q) return reply(`What Do You Want To Buy?\n\n1.potion\n2.baitfood\n3.limit\n\nExample: ${prefix + command} baitfood`)
  var anu = args[1]
   if (args[0] === 'potion'){
   let noh = 100000 * anu
  if (!args[1]) return reply(`Example : ${prefix + command} potion 2\n 1 Potion = 100000 Money`)
- if (isMonay < noh) return reply('Ihr verbleibendes Geld reicht für diesen Kauf nicht aus')
+ if (isMonay < noh) return reply('Your Remaining Money Is Not Sufficient For This Purchase')
  kurangMonay(m.sender, noh)
  var apalu = anu * 1
  addPotion(m.sender, apalu)
   setTimeout( () => {
-  reply(`Transaktion Erfolgreich ✔️\n*Ihr Restgeld* : ${getMonay(m.sender)}\n*Deine Potion* : ${getPotion(m.sender)}`)
+  reply(`Transaction Successful ✔️\n*Your Remaining Money* : ${getMonay(m.sender)}\n*Your Potion* : ${getPotion(m.sender)}`)
   }, 2000) 
  } else 
  if (args[0] === 'baitfood'){
   let noh = 5000 * anu
  if (!args[1]) return reply(`Example : ${prefix + command} baitfood 2\n 1 Bait Food = 2500 Money`)
- if (isMonay < noh) return reply('Ihr verbleibendes Geld reicht für diesen Kauf nicht aus')
+ if (isMonay < noh) return reply('Your Remaining Money Is Not Sufficient For This Purchase')
  kurangMonay(m.sender, noh)
  var apalu = anu * 1
  addUmpan(m.sender, apalu)
   setTimeout( () => {
-  reply(`Transaktion Erfolgreich ✔️\n*Ihr Restgeld* : ${getMonay(m.sender)}\n*dein Bait Food* : ${getUmpan(m.sender)}`)
+  reply(`Transaction Successful ✔️\n*Your Remaining Money* : ${getMonay(m.sender)}\n*Your Bait Food* : ${getUmpan(m.sender)}`)
   }, 2000) 
   } else 
   if (args[0] === 'limit'){
   let noh = 35000 * anu
  if (!args[1]) return reply(`Example : ${prefix + command} limit 2\n 1 Limit = 35000 Money`)
- if (isMonay < noh) return reply('Ihr verbleibendes Geld reicht für diesen Kauf nicht aus')
+ if (isMonay < noh) return reply('Your Remaining Money Is Not Sufficient For This Purchase')
  kurangMonay(m.sender, noh)
  var apalu = anu * 1
  addLimit(m.sender, apalu)
   setTimeout( () => {
-  reply(`Transaktion Erfolgreich ✔️\n*Ihr Restgeld* : ${getMonay(m.sender)}\n*Your Limit* : ${getLimit(m.sender)}`)
+  reply(`Transaction Successful ✔️\n*Your Remaining Money* : ${getMonay(m.sender)}\n*Your Limit* : ${getLimit(m.sender)}`)
   }, 2000) 
-  } else { reply("Falsches Format!") }
+  } else { reply("Incorrect Format!") }
  }
  break
  case 'sel': case 'jual':{
- if (!q) return  reply(`Was möchten Sie verkaufen??\nExample : ${prefix + command} fisch 2`)
+ if (!q) return  reply(`What Do You Want To Sell??\nExample : ${prefix + command} fish 2`)
  if (!isInventoriBuruan){ addInventoriBuruan(m.sender) } 
  if (!isInventoryMonay){ addInventoriMonay(m.sender) }
  if (!isInventory){ addInventori(m.sender) }
  var anu = args[1]
- if (args[0] === 'fisch'){
- if (isIkan < anu) return reply(`Sie haben nicht genug Fische für diese Transaktion)
+ if (args[0] === 'fish'){
+ if (isIkan < anu) return reply(`You Don't Have Enough Fish(es) For This Transaction`)
  if (!args[1]) return reply(`Example : ${prefix + command} fish 2\n 1 Fish = 1500 Money`)
  kurangIkan(m.sender, anu)
  let monaynya = 1500 * anu
  addMonay(m.sender, monaynya)
   setTimeout( () => {
-  reply(`Transaktion Erfolgreich ✔️\n*Your Remaining Money* : ${getMonay(m.sender)}\n*Ihre verbleibenden Fische* : ${getIkan(m.sender)}`)
+  reply(`Transaction Successful ✔️\n*Your Remaining Money* : ${getMonay(m.sender)}\n*Your Remaining Fish(es)* : ${getIkan(m.sender)}`)
   }, 2000) 
  } else
  if (args[0] === 'chicken'){
- if (isAyam < anu) return reply(`Sie haben nicht genug chicken für diese Transaktion`)
+ if (isAyam < anu) return reply(`You Don't Have Enough Chicken(s) For This Transaction`)
  if (!args[1]) return reply(`Example : ${prefix + command} chicken 2\n 1 Chicken = 2500 Money`)
  kurangAyam(m.sender, anu)
  let monaynya = 2500 * anu
  addMonay(m.sender, monaynya)
   setTimeout( () => {
-  reply(`Transaktion Erfolgreich ✔️\n*Ihr Restgeld* : ${getMonay(m.sender)}\n*Ihr verbleibendes chicken* : ${getAyam(m.sender)}`)
+  reply(`Transaction Successful ✔️\n*Your Remaining Money* : ${getMonay(m.sender)}\n*Your Remaining Chicken* : ${getAyam(m.sender)}`)
   }, 2000) 
  } else
- if (args[0] === 'Hase'){
- if (isKelinci < anu) return reply(`Sie haben nicht genug Kaninchen für diese Transaktion`)
- if (!args[1]) return reply(`Example : ${prefix + command} hase 2\n 1 hase = 3000 Money`)
+ if (args[0] === 'rabbit'){
+ if (isKelinci < anu) return reply(`You Don't Have Enough Rabbit(s) For This Transaction`)
+ if (!args[1]) return reply(`Example : ${prefix + command} rabbit 2\n 1 Rabbit = 3000 Money`)
  kurangKelinci(m.sender, anu)
  let monaynya = 3000 * anu
  addMonay(m.sender, monaynya)
   setTimeout( () => {
-  reply(`Transaktion Erfolgreich ✔️\n*Ihr Restgeld* : ${getMonay(m.sender)}\n*Ihre verbleibenden hasen* : ${getKelinci(m.sender)}`)
+  reply(`Transaction Successful ✔️\n*Your Remaining Money* : ${getMonay(m.sender)}\n*Your Remaining Rabbit(s)* : ${getKelinci(m.sender)}`)
   }, 2000) 
  } else
- if (args[0] === 'Schaf'){
- if (isDomba < anu) return reply(`Sie haben nicht genug Schafe für diese Transaktion`)
- if (!args[1]) return reply(`Example : ${prefix + command} Schaf 2\n 1 Schaf = 5000 money`)
+ if (args[0] === 'sheep'){
+ if (isDomba < anu) return reply(`You Don't Have Enough Sheep(s) For This Transaction`)
+ if (!args[1]) return reply(`Example : ${prefix + command} domba 2\n 1 Sheep = 5000 money`)
  kurangDomba(m.sender, anu)
  let monaynya = 5000 * anu
  addMonay(m.sender, monaynya)
   setTimeout( () => {
-  reply(`Transaktion Erfolgreich ✔️\n*Ihr verbleibendes Geld* : ${getMonay(m.sender)}\n*Ihre verbleibenden Schafe* : ${getDomba(m.sender)}`)
+  reply(`Transaction Successful ✔️\n*Your Remaining Money* : ${getMonay(m.sender)}\n*Your Remaining Sheep(s)* : ${getDomba(m.sender)}`)
   }, 2000) 
  } else
- if (args[0] === 'Kuh'){
- if (isSapi < anu) return reply(`Sie haben nicht genug Kuh(n) für diese Transaktion`)
- if (!args[1]) return reply(`Example : ${prefix + command} Kuh 2\n 1 Kuh = 10000 Money`)
+ if (args[0] === 'cow'){
+ if (isSapi < anu) return reply(`You Don't Have Enough Cow(s) For This Transaction`)
+ if (!args[1]) return reply(`Example : ${prefix + command} cow 2\n 1 Cow = 10000 Money`)
  kurangSapi(m.sender, anu)
  let monaynya = 10000 * anu
  addMonay(m.sender, monaynya)
   setTimeout( () => {
-  reply(`Transaktion Erfolgreich ✔️\n*Ihr Restgeld* : ${getMonay(m.sender)}\n*Ihre verbleibende(n) Kuh(en)* : ${getSapi(m.sender)}`)
+  reply(`Transaction Successful ✔️\n*Your Remaining Money* : ${getMonay(m.sender)}\n*Your Remaining Cow(s)* : ${getSapi(m.sender)}`)
   }, 2000) 
  } else
- if (args[0] === 'Elefant'){
- if (isGajah < anu) return reply(`Sie haben nicht genug Elefanten für diese Transaktion`)
- if (!args[1]) return reply(`Example : ${prefix + command} Elefant 2\n 1 Elefant = 15000 Money`)
+ if (args[0] === 'elephant'){
+ if (isGajah < anu) return reply(`You Don't Have Enough Elephant(s) For This Transaction`)
+ if (!args[1]) return reply(`Example : ${prefix + command} elephant 2\n 1 Elephant = 15000 Money`)
  kurangGajah(m.sender, anu)
  let monaynya = 15000 * anu
  addMonay(m.sender, monaynya)
   setTimeout( () => {
-  reply(`Transaktion Erfolgreich ✔️\n*Ihr Restgeld* : ${getMonay(m.sender)}\n*Ihr(e) verbleibende(n) Elefant(en)* : ${getGajah(m.sender)}`)
+  reply(`Transaction Successful ✔️\n*Your Remaining Money* : ${getMonay(m.sender)}\n*Your Remaining Elephant(s)* : ${getGajah(m.sender)}`)
   }, 2000) 
  } else
- if (args[0] === 'Eisen'){
- if (isBesi < anu) return reply(`Sie haben nicht genug Eisen für diese Transaktion`)
- if (!args[1]) return reply(`Example : ${prefix + command} Eisen 2\n 1 Eisen = 15000 Money`)
+ if (args[0] === 'iron'){
+ if (isBesi < anu) return reply(`You Don't Have Enough Iron(s) For This Transaction`)
+ if (!args[1]) return reply(`Example : ${prefix + command} iron 2\n 1 Iron = 15000 Money`)
  kurangBesi(m.sender, anu)
  let monaynya = 16000 * anu
  addMonay(m.sender, monaynya)
   setTimeout( () => {
-  reply(`Transaktion Erfolgreich ✔️\n*Ihr Restgeld* : ${getMonay(m.sender)}\n*Ihre verbleibenden Eisen* : ${getBesi(m.sender)}`)
+  reply(`Transaction Successful ✔️\n*Your Remaining Money* : ${getMonay(m.sender)}\n*Your Remaining Iron(s)* : ${getBesi(m.sender)}`)
   }, 2000) 
  } else
  if (args[0] === 'gold'){
- if (isEmas < anu) return reply(`Sie haben nicht genug Gold für diese Transaktion`)
+ if (isEmas < anu) return reply(`You Don't Have Enough Gold(s) For This Transaction`)
  if (!args[1]) return reply(`Example : ${prefix + command} gold 2\n 1 Gold = 50000 Money`)
  kurangEmas(m.sender, anu)
  let monaynya = 50000 * anu
  addMonay(m.sender, monaynya)
   setTimeout( () => {
-  reply(`Transaktion Erfolgreich ✔️\n*Dein Geld* : ${getMonay(m.sender)}\n*Ihr verbleibendes Gold* : ${getEmas(m.sender)}`)
+  reply(`Transaction Successful ✔️\n*Your Money* : ${getMonay(m.sender)}\n*Your Remaining Gold(s)* : ${getEmas(m.sender)}`)
   }, 2000) 
  } else
  if (args[0] === 'emerald'){
- if (isEmerald < anu) return reply(`Sie haben nicht genug emerald für diese Transaktion`)
+ if (isEmerald < anu) return reply(`You Don't Have Enough Emerald(s) For This Transaction`)
  if (!args[1]) return reply(`Example : ${prefix + command} emerald 2\n 1 Emerald = 100000 Money`)
  kurangEmerald(m.sender, anu)
  let monaynya = 100000 * anu
  addMonay(m.sender, monaynya)
   setTimeout( () => {
-  reply(`Transaktion Erfolgreich ✔️\n*Ihr Restgeld* : ${getMonay(m.sender)}\n*Sie haben nicht genug Smaragde für diese Transaktion* : ${getEmerald(m.sender)}`)
+  reply(`Transaction Successful ✔️\n*Your Remaining Money* : ${getMonay(m.sender)}\n*You Don't Have Enough Emerald(s) For This Transaction* : ${getEmerald(m.sender)}`)
   }, 2000) 
- } else { reply("Falsches Format!") }
+ } else { reply("Incorrect Format!") }
 
  }
  break
 
  case 'heal':{
 if (q.includes('--help')) return reply(examkosong) 
- if (!isCekDarah < 1) return reply('Du kannst nur heilen, wenn dein Blut 0 ist')
- if (isCekDarah > 100) return reply('Ihr Blut ist voll')
- if (isPotion < 1) return reply(`Du hast keinen Trank, versuche ihn auf diese Weise zu kaufen #buypotion _amount_`) 
+ if (!isCekDarah < 1) return reply('You Can Only Heal When Your Blood Is 0')
+ if (isCekDarah > 100) return reply('Your Blood Is Full')
+ if (isPotion < 1) return reply(`You Don't Have A Potion, Try Buying It This Way #buypotion _amount_`) 
  addDarah(m.sender, 100)
  kurangPotion(m.sender, 1)
- reply('Erfolg! Ihr Blut ist voll')
+ reply('Success! Your Bood Is Full')
  }
  break
  case 'hunt': case 'hunting': {
 if (q.includes('--help')) return reply(examkosong) 
  if (!isDarah){ addInventoriDarah(m.sender, DarahAwal) }
- if (isCekDarah < 1) return reply('Dein Blut ist weg, versuche mit Tränken zu heilen') 
+ if (isCekDarah < 1) return reply('Your Blood Is Gone, Try To Heal Using Potions') 
  if (!isInventoriBuruan){ addInventoriBuruan(m.sender) } 
-  let luka = ["Bei der Jagd von einem Dorn durchbohrt","Auf der Jagd in den Abgrund gerutscht","Von einem wilden Tier zerkratzt","Nicht vorsichtig","In Wurzeln verstrickt","Sturz bei der Jagd"]
-  let location = ["Urwald","Amazonas Wald","Tropenwald","Wiese","Afrikanischer Wald","Berge"]
+  let luka = ["Pierced by a thorn while hunting","Slipped into the abyss while hunting","Scratched by a wild animal","Not careful","Entangled in roots","Fall while hunting"]
+  let location = ["Jungle","Amazon forest","Tropical forest","Meadow","African forest","Mountains"]
    var ikanmu = Math.ceil(Math.random() * 10)
    var ayam = Math.ceil(Math.random() * 8)
    var kelinci = Math.ceil(Math.random() * 7)
@@ -850,16 +850,16 @@ if (q.includes('--help')) return reply(examkosong)
    }
  setTimeout( () => {
   let teksehmazeh = `_[ HUNT RESULT ]_\n`
-     teksehmazeh += `*🐟Fische* : ${ikanmu}\n`
+     teksehmazeh += `*🐟Fish* : ${ikanmu}\n`
      teksehmazeh += `*🐔Chicken* : ${ayam}\n`
-     teksehmazeh += `*🐇Kaninchen* : ${kelinci}\n`
-     teksehmazeh += `*🐑Schaf* : ${domba}\n`
-     teksehmazeh += `*🐄Kuh* : ${sapi}\n`
-     teksehmazeh += `*🐘Elefant* : ${gajah}\n\n`
+     teksehmazeh += `*🐇Rabbit* : ${kelinci}\n`
+     teksehmazeh += `*🐑Sheep* : ${domba}\n`
+     teksehmazeh += `*🐄Cow* : ${sapi}\n`
+     teksehmazeh += `*🐘Elephant* : ${gajah}\n\n`
      teksehmazeh += `_[ INFO ]_\n`
-     teksehmazeh += `*Ort* : ${lokasinya}\n`
-     teksehmazeh += `*Verwundet* : ${lukanya}, blood - 10\n`
-     teksehmazeh += `*Restliches Blut* : ${getDarah(m.sender)}\n`
+     teksehmazeh += `*Location* : ${lokasinya}\n`
+     teksehmazeh += `*Wounded* : ${lukanya}, blood - 10\n`
+     teksehmazeh += `*Remaining blood* : ${getDarah(m.sender)}\n`
     let buttons = [
       {
        buttonId: `${prefix + command}`, 
@@ -877,7 +877,7 @@ if (q.includes('--help')) return reply(examkosong)
      GojoMdNx.sendMessage(from, buttonMessage, { quoted: m })      
   }, 5000)  
  setTimeout( () => {
-  reply(`@${m.sender.split("@")[0]} Begann mit der Hunt in ${lokasinya}`)     
+  reply(`@${m.sender.split("@")[0]} Started Hunting In ${lokasinya}`)     
   }, 1000) 
  addIkan(m.sender, ikanmu) 
    addAyam(m.sender, ayam) 
@@ -892,16 +892,16 @@ if (q.includes('--help')) return reply(examkosong)
                 let user = global.db.data.users[m.sender]
                 user.afkTime = + new Date
                 user.afkReason = text
-                reply(`${m.pushName} Ist Afk/Offline gegangen${text ? ': ' + text : ''}`)
+                reply(`${m.pushName} Has Gone Afk/Offline${text ? ': ' + text : ''}`)
             }
             break	
         case 'ttc': case 'ttt': case 'tictactoe': {
             let TicTacToe = require("./lib/tictactoe")
             this.game = this.game ? this.game : {}
-            if (Object.values(this.game).find(room => room.id.startsWith('tictactoe') && [room.game.playerX, room.game.playerO].includes(m.sender))) return replay(`Sie sind immer noch im Spiel`)
+            if (Object.values(this.game).find(room => room.id.startsWith('tictactoe') && [room.game.playerX, room.game.playerO].includes(m.sender))) return replay(`You Are Still In The Game`)
             let room = Object.values(this.game).find(room => room.state === 'WAITING' && (text ? room.name === text : true))
             if (room) {
-            reply('Partner gefunden!')
+            reply('Partner found!')
             room.o = m.chat
             room.game.playerO = m.sender
             room.state = 'PLAYING'
@@ -940,7 +940,7 @@ Type *surrender* to surrender and admit defeat`
             state: 'WAITING'
             }
             if (text) room.name = text
-            reply('Warten auf Partner' + (text ? ` Geben Sie den folgenden Befehl ein ${prefix}${command} ${text}` : ''))
+            reply('Waiting For Partner' + (text ? ` Type The Command Below ${prefix}${command} ${text}` : ''))
             this.game[room.id] = room
             }
             }
@@ -950,9 +950,9 @@ Type *surrender* to surrender and admit defeat`
             try {
             if (this.game) {
             delete this.game
-            GojoMdNx.sendText(m.chat, `Die TicTacToe-Sitzung wurde erfolgreich gelöscht`, m)
+            GojoMdNx.sendText(m.chat, `Successfully Deleted The TicTacToe Session`, m)
             } else if (!this.game) {
-            reply(`TicTacToe🎮 Sitzung existiert nicht`)
+            reply(`TicTacToe🎮 Session Does Not Exist`)
             } else reply('?')
             } catch (e) {
             reply('Damaged')
@@ -964,10 +964,10 @@ Type *surrender* to surrender and admit defeat`
             let poin = 10
             let poin_lose = 10
             let timeout = 60000
-            if (Object.values(this.suit).find(roof => roof.id.startsWith('suit') && [roof.p, roof.p2].includes(m.sender))) return replay(`Vervollständigen Sie Ihre vorherige Suit`)
-	    if (m.mentionedJid[0] === m.sender) return reply(`Kann nicht mit mir selbst spielen !`)
-            if (!m.mentionedJid[0]) return reply(`Wen möchtest du herausfordern?_\nMarkieren Sie die Person..\n\nExample : ${prefix}suit @${owner[1]}`, m.chat, { mentions: [owner[1] + '@s.whatsapp.net'] })
-            if (Object.values(this.suit).find(roof => roof.id.startsWith('suit') && [roof.p, roof.p2].includes(m.mentionedJid[0])))  reply(`Die Person, die Sie herausfordern, spielt mit jemand anderem Suit :(`)
+            if (Object.values(this.suit).find(roof => roof.id.startsWith('suit') && [roof.p, roof.p2].includes(m.sender))) return replay(`Complete Your Previous Suit`)
+	    if (m.mentionedJid[0] === m.sender) return reply(`Can't Play With Myself !`)
+            if (!m.mentionedJid[0]) return reply(`_Who Do You Want To Challenge?_\nTag The Person..\n\nExample : ${prefix}suit @${owner[1]}`, m.chat, { mentions: [owner[1] + '@s.whatsapp.net'] })
+            if (Object.values(this.suit).find(roof => roof.id.startsWith('suit') && [roof.p, roof.p2].includes(m.mentionedJid[0])))  reply(`The Person You Are Challenging Is Playing Suit With Someone Else :(`)
             let id = 'suit_' + new Date() * 1
             let caption = `_*SUIT PvP*_
 
@@ -1009,12 +1009,12 @@ Please @${m.mentionedJid[0].split`@`[0]} To Type Accept/Reject`
             break
 	    case 'family100': {
                 if ('family100'+m.chat in _family100) {
-                    reply('Es gibt noch unfertige Sitzungen!')
+                    reply('There Are Still Unfinished Sessions!')
                     reply(false)
                 }
                 let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/family100.json')
                 let random = anu[Math.floor(Math.random() * anu.length)]
-                let hasil = `*Beantworten Sie folgende Fragen :*\n${random.soal}\n\nEs gibt *${random.jawaban.length}* Antworten ${random.jawaban.find(v => v.includes(' ')) ? `(Some Answers Have Spaces)` : ''}`.trim()
+                let hasil = `*Answer The Following Questions :*\n${random.soal}\n\nThere Is *${random.jawaban.length}* Answer ${random.jawaban.find(v => v.includes(' ')) ? `(Some Answers Have Spaces)` : ''}`.trim()
                 _family100['family100'+m.chat] = {
                     id: 'family100'+m.chat,
                     pesan: await GojoMdNx.sendText(m.chat, hasil, m),
@@ -1033,90 +1033,90 @@ Please @${m.mentionedJid[0].split`@`[0]} To Type Accept/Reject`
             case 'guess': {
                 if (!text) return replay(`Example : ${prefix + command} song\n\nOption : \n1. music\n2. picture (indo)\n3. word\n4. sentence\n5. lyrics (indo)\n6. blank (indo)`)
                 if (args[0] === "song") {
-                    if (tebaklagu.hasOwnProperty(m.sender.split('@')[0])) return replay(`Es gibt noch unvollendete Sitzungen`)
+                    if (tebaklagu.hasOwnProperty(m.sender.split('@')[0])) return replay(`There Are Still Unfinished Sessions`)
                     let anu = await fetchJson('https://fatiharridho.github.io/tebaklagu.json')
                     let result = anu[Math.floor(Math.random() * anu.length)]
                     let msg = await GojoMdNx.sendMessage(m.chat, { audio: { url: result.link_song }, mimetype: 'audio/mpeg' }, { quoted: m })
-                    GojoMdNx.sendText(m.chat, `Wie heisst dieses Lied?\n\nKünstler : ${result.artist}\nZeit : 60 Sekunden`, msg).then(() => {
+                    GojoMdNx.sendText(m.chat, `What Is The Name Of This Song?\n\nArtist : ${result.artist}\nTime : 60 seconds`, msg).then(() => {
                     tebaklagu[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
                     })
                     await sleep(60000)
                     if (tebaklagu.hasOwnProperty(m.sender.split('@')[0])) {
-                    console.log("Antworten: " + result.jawaban)
-                    GojoMdNx.sendButtonText(m.chat, [{ buttonId: 'guess song', buttonText: { displayText: 'Guess The Song' }, type: 1 }], `Die Zeit ist abgelaufen\nAntworten:  ${tebaklagu[m.sender.split('@')[0]]}\n\nWillst du spielen? Drücken Sie die Den knopf unten`, GojoMdNx.user.name, m)
+                    console.log("Answer: " + result.jawaban)
+                    GojoMdNx.sendButtonText(m.chat, [{ buttonId: 'guess song', buttonText: { displayText: 'Guess The Song' }, type: 1 }], `Time Has Run Out\nAnswer:  ${tebaklagu[m.sender.split('@')[0]]}\n\nWant To Play? Press The Button Below`, GojoMdNx.user.name, m)
                     delete tebaklagu[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'picture') {
-                    if (tebakgambar.hasOwnProperty(m.sender.split('@')[0])) return replay(`Es gibt noch unvollendete Sitzungen!`)
+                    if (tebakgambar.hasOwnProperty(m.sender.split('@')[0])) return replay(`There Are Still Unfinished Sessions!`)
                     let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/tebakgambar.json')
                     let result = anu[Math.floor(Math.random() * anu.length)]
-                    GojoMdNx.sendImage(m.chat, result.img, `Bitte beantworten Sie die Fragen Über\n\nBeschreibung : ${result.deskripsi}\nZeit : 60 Sekunden`, m).then(() => {
+                    GojoMdNx.sendImage(m.chat, result.img, `Please Answer The Questions Above\n\nDescription : ${result.deskripsi}\nTime : 60 seconds`, m).then(() => {
                     tebakgambar[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
                     })
                     await sleep(60000)
                     if (tebakgambar.hasOwnProperty(m.sender.split('@')[0])) {
-                    console.log("Antworten: " + result.jawaban)
-                    GojoMdNx.sendButtonText(m.chat, [{ buttonId: 'guess picture', buttonText: { displayText: 'Guess The Picture' }, type: 1 }], `Die Zeit ist abgelaufen\nAntwort:  ${tebakgambar[m.sender.split('@')[0]]}\n\nillst du wieder spielen? Drücken Sie die Schaltfläche unten`, GojoMdNx.user.name, m)
+                    console.log("Answer: " + result.jawaban)
+                    GojoMdNx.sendButtonText(m.chat, [{ buttonId: 'guess picture', buttonText: { displayText: 'Guess The Picture' }, type: 1 }], `Time Has Run Out\nAnswer:  ${tebakgambar[m.sender.split('@')[0]]}\n\nWant To Play Again? PressThe Button Below`, GojoMdNx.user.name, m)
                     delete tebakgambar[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'word') {
-                    if (tebakkata.hasOwnProperty(m.sender.split('@')[0])) return replay(`Es gibt noch unfertige Sitzungen!`)
+                    if (tebakkata.hasOwnProperty(m.sender.split('@')[0])) return replay(`There Are Still Unfinished Sessions!`)
                     let anu = await fetchJson('https://raw.githubusercontent.com/nexusnw/fungames/main/GuessTheWord.js')
                     let result = anu[Math.floor(Math.random() * anu.length)]
-                    GojoMdNx.sendText(m.chat, `Bitte beantworten Sie die folgende Frage\n\n${result.soal}\nZeit : 60 sekunden`, m).then(() => {
+                    GojoMdNx.sendText(m.chat, `Please Answer The Following Question\n\n${result.soal}\nTime : 60 seconds`, m).then(() => {
                     tebakkata[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
                     })
                     await sleep(60000)
                     if (tebakkata.hasOwnProperty(m.sender.split('@')[0])) {
-                    console.log("antworten: " + result.jawaban)
-                    GojoMdNx.sendButtonText(m.chat, [{ buttonId: 'guess word', buttonText: { displayText: 'Guess The Word' }, type: 1 }], `Zeitüberschreitung\nAntwort:  ${tebakkata[m.sender.split('@')[0]]}\n\nWillst du wieder spielen? Drücken Sie die Schaltfläche unten`, GojoMdNx.user.name, m)
+                    console.log("Answer: " + result.jawaban)
+                    GojoMdNx.sendButtonText(m.chat, [{ buttonId: 'guess word', buttonText: { displayText: 'Guess The Word' }, type: 1 }], `Time Out\nAnswer:  ${tebakkata[m.sender.split('@')[0]]}\n\nWant To Play Again? PressThe Button Below`, GojoMdNx.user.name, m)
                     delete tebakkata[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'sentence') {
-                    if (tebakkalimat.hasOwnProperty(m.sender.split('@')[0])) return replay(`Es gibt noch unvollendete Sitzungen!`)
+                    if (tebakkalimat.hasOwnProperty(m.sender.split('@')[0])) return replay(`There Are Still Unfinished Sessions!`)
                     let anu = await fetchJson('https://raw.githubusercontent.com/nexusnw/fungames/main/GuessTheSentence.js')
                     let result = anu[Math.floor(Math.random() * anu.length)]
-                    GojoMdNx.sendText(m.chat, `Bitte beantworten Sie die folgende Frage\n\n${result.soal}\nZeit : 60 Sekunden`, m).then(() => {
+                    GojoMdNx.sendText(m.chat, `Please Answer The Following Question\n\n${result.soal}\nTime : 60 seconds`, m).then(() => {
                     tebakkalimat[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
                     })
                     await sleep(60000)
                     if (tebakkalimat.hasOwnProperty(m.sender.split('@')[0])) {
-                    console.log("Antworten: " + result.jawaban)
-                    GojoMdNx.sendButtonText(m.chat, [{ buttonId: 'guess sentence', buttonText: { displayText: 'Guess The Sentence' }, type: 1 }], `Zeitüberschreitung\nAntwort:  ${tebakkalimat[m.sender.split('@')[0]]}\n\nWillst du wieder spielen? Drücken Sie die Schaltfläche unten`, GojoMdNx.user.name, m)
+                    console.log("Answer: " + result.jawaban)
+                    GojoMdNx.sendButtonText(m.chat, [{ buttonId: 'guess sentence', buttonText: { displayText: 'Guess The Sentence' }, type: 1 }], `Time Out\nAnswer:  ${tebakkalimat[m.sender.split('@')[0]]}\n\nWant To Play Again? PressThe Button Below`, GojoMdNx.user.name, m)
                     delete tebakkalimat[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'lyrics') {
-                    if (tebaklirik.hasOwnProperty(m.sender.split('@')[0])) return replay(`Es gibt noch unfertige Sitzungen!`)
+                    if (tebaklirik.hasOwnProperty(m.sender.split('@')[0])) return replay(`There Are Still Unfinished Sessions!`)
                     let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/tebaklirik.json')
                     let result = anu[Math.floor(Math.random() * anu.length)]
-                    GojoMdNx.sendText(m.chat, `Dies sind die Texte von welchem ​​​​Song? : *${result.soal}*?\nZeit : 60 Sekunden`, m).then(() => {
+                    GojoMdNx.sendText(m.chat, `These Are The Lyrics Of Which Song? : *${result.soal}*?\nTime : 60 seconds`, m).then(() => {
                     tebaklirik[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
                     })
                     await sleep(60000)
                     if (tebaklirik.hasOwnProperty(m.sender.split('@')[0])) {
-                    console.log("Antworten: " + result.jawaban)
-                    GojoMdNx.sendButtonText(m.chat, [{ buttonId: 'guess lyrics', buttonText: { displayText: 'Guess The Lyrics' }, type: 1 }], `Zeitüberschreitung\nAntwort:  ${tebaklirik[m.sender.split('@')[0]]}\n\nWillst du wieder spielen? Drücken Sie die Schaltfläche unten`, GojoMdNx.user.name, m)
+                    console.log("Answer: " + result.jawaban)
+                    GojoMdNx.sendButtonText(m.chat, [{ buttonId: 'guess lyrics', buttonText: { displayText: 'Guess The Lyrics' }, type: 1 }], `Time Out\nAnswer:  ${tebaklirik[m.sender.split('@')[0]]}\n\Want To Play Again? PressThe Button Below`, GojoMdNx.user.name, m)
                     delete tebaklirik[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'blank') {
-                    if (caklontong.hasOwnProperty(m.sender.split('@')[0])) return replay(`Es gibt noch unfertige Sitzungen!`)
+                    if (caklontong.hasOwnProperty(m.sender.split('@')[0])) return replay(`There Are Still Unfinished Sessions!`)
                     let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/caklontong.json')
                     let result = anu[Math.floor(Math.random() * anu.length)]
-                    GojoMdNx.sendText(m.chat, `*Beantworten Sie folgende Fragen :*\n${result.soal}*\nzeit : 60 Sekunden`, m).then(() => {
+                    GojoMdNx.sendText(m.chat, `*Answer The Following Questions :*\n${result.soal}*\nTime : 60 seconds`, m).then(() => {
                     caklontong[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
 		    caklontong_desk[m.sender.split('@')[0]] = result.deskripsi
                     })
                     await sleep(60000)
                     if (caklontong.hasOwnProperty(m.sender.split('@')[0])) {
-                    console.log("Antworten: " + result.jawaban)
-                    GojoMdNx.sendButtonText(m.chat, [{ buttonId: 'guess blank', buttonText: { displayText: 'Guess The Blank' }, type: 1 }], `Zeitüberschreitung\nAntwort:  ${caklontong[m.sender.split('@')[0]]}\nBeschreibung : ${caklontong_desk[m.sender.split('@')[0]]}\n\nWillst du wieder spielen? Drücken Sie die Schaltfläche unten`, GojoMdNx.user.name, m)
+                    console.log("Answer: " + result.jawaban)
+                    GojoMdNx.sendButtonText(m.chat, [{ buttonId: 'guess blank', buttonText: { displayText: 'Guess The Blank' }, type: 1 }], `Time Out\nAnswer:  ${caklontong[m.sender.split('@')[0]]}\nDescription : ${caklontong_desk[m.sender.split('@')[0]]}\n\Want To Play Again? PressThe Button Below`, GojoMdNx.user.name, m)
                     delete caklontong[m.sender.split('@')[0]]
 		    delete caklontong_desk[m.sender.split('@')[0]]
                     }
                 }
             }
             break
-
+		
 	case 'react': {
                 if (!isCreator) throw mess.owner
                 reactionMessage = {
@@ -1151,7 +1151,7 @@ Please @${m.mentionedJid[0].split`@`[0]} To Type Accept/Reject`
             let member = participants.map(u => u.id)
             let me = m.sender
             let jodoh = member[Math.floor(Math.random() * member.length)]
-            let jawab = `👫Your Match Is
+            let jawab = `👫dein soulmate ist
 
 @${me.split('@')[0]} ❤️ @${jodoh.split('@')[0]}`
             let ments = [me, jodoh]
@@ -1167,7 +1167,7 @@ Please @${m.mentionedJid[0].split`@`[0]} To Type Accept/Reject`
             let orang = member[Math.floor(Math.random() * member.length)]
             let jodoh = member[Math.floor(Math.random() * member.length)]
             let jawab = `@${orang.split('@')[0]} ❤️ @${jodoh.split('@')[0]}
-Cieeee, What's Going On❤️💖👀`
+shesshhh, was geht da ab`
             let menst = [orang, jodoh]
             let buttons = [
                         { buttonId: '❤️', buttonText: { displayText: '❤️' }, type: 1 }
@@ -1175,16 +1175,16 @@ Cieeee, What's Going On❤️💖👀`
                     await GojoMdNx.sendButtonText(m.chat, buttons, jawab, GojoMdNx.user.name, m, {mentions: menst})
             }
             break
-            case 'is':
+            case 'frage':
 				if (!text) return replay(`Use Text, Example : ${prefix + command} he married `)
-					const apa = [`Yes`, `No`, `It Could Be`, `Thats right`]
+					const apa = [`Ja`, `Nein`, `Es könnte sein`, `bist du schwul?`, `begeh mal selbstmord`]
 					const kah = apa[Math.floor(Math.random() * apa.length)]
-GojoMdNx.sendMessage(from, { text: `Question : Is ${q}\nAnswer : ${kah}` }, { quoted: m })
+GojoMdNx.sendMessage(from, { text: `Frage : Ist ${q}\nAntwort : ${kah}` }, { quoted: m })
 
 					break
 					            case 'what':
 				if (!text) return replay(`Use Text, Example : ${prefix + command} he married `)
-					const lel = [`Ask Your Gf`, `I Dont Know`, `I Don't Know, Ask Your Father`]
+					const lel = [`Fragen Sie Ihre Freundin`, `Ich weiß nicht`, `I Weiß nicht, frag deinen Vater`]
 					const kahk = lel[Math.floor(Math.random() * lel.length)]
 GojoMdNx.sendMessage(from, { text: `Question : What ${q}\nAnswer : ${kahk}` }, { quoted: m })
 
@@ -2303,7 +2303,7 @@ case 'lava': case 'rock': case 'bloodglas': case 'hallowen': case 'darkgold': ca
                     var but = [
 				{
 					"urlButton": {
-						"displayText": "YouTube📍",
+						"displayText": "instagram",
 						"url": `${myweb}`
 						}
 					}
@@ -2327,7 +2327,7 @@ case 'lava': case 'rock': case 'bloodglas': case 'hallowen': case 'darkgold': ca
                     var but = [
 				{
 					"urlButton": {
-						"displayText": "YouTube📍",
+						"displayText": "instagram",
 						"url": `${myweb}`
 						}
 					}
@@ -3397,7 +3397,7 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
    └───────────────┈ ⳹`,
                             hydratedButtons: [{
                                 urlButton: {
-                                    displayText: 'YouTube📍',
+                                    displayText: 'instagram',
                                     url: `${myweb}`
                                 }
                             }, {
@@ -3457,7 +3457,7 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
    └───────────────┈ ⳹`,
                             hydratedButtons: [{
                                 urlButton: {
-                                    displayText: 'YouTube📍',
+                                    displayText: 'instagram',
                                     url: `${myweb}`
                                 }
                             }, {
@@ -3731,11 +3731,11 @@ case 'help': case 'menu': {
 ┃╠${prefix}dance
 ┃╠${prefix}cringe
 ┃╠══𖡝「 FUN 」 𖡝
-┃╠ ${prefix}wie [text
-┃╠ ${prefix}wenn [text]
-┃╠ ${prefix}ist [text]
-┃╠ ${prefix}was [text]
-┃╠ ${prefix}darf [text]
+┃╠ ${prefix}how [text
+┃╠ ${prefix}when [text]
+┃╠ ${prefix}frage [text]
+┃╠ ${prefix}what [text]
+┃╠ ${prefix}can [text]
 ┃╠ ${prefix}rate [text]
 ┃╠ ${prefix}wangy [text]
 ┃╠ ${prefix}beautifulcheck [tag]
@@ -3748,29 +3748,29 @@ case 'help': case 'menu': {
 ┃╠ ${prefix}hornycheck [tag]
 ┃╠ ${prefix}charactercheck [tag]
 ┃╠ ${prefix}lovelycheck [tag]
-┃╠ ${prefix}paar
+┃╠ ${prefix}couple
 ┃╠ ${prefix}mysoulmate
 ┃╠ ${prefix}hot
 ┃╠ ${prefix}sexy
-┃╠ ${prefix}nett
+┃╠ ${prefix}kind
 ┃╠ ${prefix}idiot
-┃╠ ${prefix}gutaussehend
-┃╠ ${prefix}schön
-┃╠ ${prefix}niedlich
-┃╠ ${prefix}hübsch
-┃╠ ${prefix}lesbisch
+┃╠ ${prefix}handsome
+┃╠ ${prefix}beautiful
+┃╠ ${prefix}cute
+┃╠ ${prefix}pretty
+┃╠ ${prefix}lesbian
 ┃╠ ${prefix}noob
 ┃╠ ${prefix}bastard
-┃╠ ${prefix}töricht
-┃╠ ${prefix}Streber
-┃╠ ${prefix}Arschloch
+┃╠ ${prefix}foolish
+┃╠ ${prefix}nerd
+┃╠ ${prefix}asshole
 ┃╠ ${prefix}gay
-┃╠ ${prefix}Clever
-┃╠ ${prefix}Stoppel
-┃╠ ${prefix}Hund
+┃╠ ${prefix}smart
+┃╠ ${prefix}stubble
+┃╠ ${prefix}dog
 ┃╠ ${prefix}horny
-┃╠ ${prefix}Fotze
-┃╠ ${prefix}Unkraut
+┃╠ ${prefix}cunt
+┃╠ ${prefix}wibu
 ┃╠ ${prefix}tictactoe
 ┃╠ ${prefix}delttt
 ┃╠ ${prefix}guess [option]
@@ -3857,7 +3857,7 @@ case 'help': case 'menu': {
                             hydratedFooterText: `${pushname}`,
                             hydratedButtons: [{
                                 urlButton: {
-                                    displayText: 'YouTube📍',
+                                    displayText: 'instagram',
                                     url: `${myweb}`
                                 }
                             }, {
@@ -3920,7 +3920,7 @@ await GojoMdNx.send5ButImg(from, `` + '' + ' ', `
 ┃╠${prefix}checkvote
 ┃╠${prefix}delvote
 ┃╚═════════════𖡝
-┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "YouTube📍","url": `${myweb}`}},{"urlButton": {"displayText": "Script🔖","url": `${sc}`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "👤Owner👤","id": 'owner'}}] )
+┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "instagram","url": `${myweb}`}},{"urlButton": {"displayText": "Script🔖","url": `${sc}`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "👤Owner👤","id": 'owner'}}] )
 break
 
 case 'rpgmenu':
@@ -3938,7 +3938,7 @@ await GojoMdNx.send5ButImg(from, `` + '' + ' ', `
 ┃╠${prefix}buy [option]
 ┃╠${prefix}sell [option]
 ┃╚═════════════𖡝
-┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "YouTube📍","url": `${myweb}`}},{"urlButton": {"displayText": "Script🔖","url": `${sc}`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "👤Owner👤","id": 'owner'}}] )
+┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "instagram","url": `${myweb}`}},{"urlButton": {"displayText": "Script🔖","url": `${sc}`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "👤Owner👤","id": 'owner'}}] )
 break
 
 case 'funmenu':
@@ -3991,7 +3991,7 @@ await GojoMdNx.send5ButImg(from, `` + '' + ' ', `
 ┃╠ ${prefix}math [mode]
 ┃╠ ${prefix}suitpvp [tag]
 ┃╚═════════════𖡝
-┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "YouTube📍","url": `${myweb}`}},{"urlButton": {"displayText": "Script🔖","url": `${sc}`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "👤Owner👤","id": 'owner'}}] )
+┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "instagram","url": `${myweb}`}},{"urlButton": {"displayText": "Script🔖","url": `${sc}`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "👤Owner👤","id": 'owner'}}] )
 break
 
 case 'ownermenu':
@@ -4020,7 +4020,7 @@ await GojoMdNx.send5ButImg(from, `` + '' + ' ', `
 ┃╠${prefix}checkvote
 ┃╠${prefix}delvote
 ┃╚═════════════𖡝
-┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "YouTube📍","url": `${myweb}`}},{"urlButton": {"displayText": "Script🔖","url": `${sc}`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "👤Owner👤","id": 'owner'}}] )
+┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "instagram","url": `${myweb}`}},{"urlButton": {"displayText": "Script🔖","url": `${sc}`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "👤Owner👤","id": 'owner'}}] )
 break
 case 'downloadmenu':
 var unicorn = await getBuffer(picak+'Downloader Menu')
@@ -4035,7 +4035,7 @@ await GojoMdNx.send5ButImg(from, `` + '' + ' ', `
 ┃╠${prefix}joox [query]
 ┃╠${prefix}soundcloud [url]
 ┃╚═════════════𖡝
-┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "YouTube📍","url": `${myweb}`}},{"urlButton": {"displayText": "Script🔖","url": `${sc}`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "👤Owner👤","id": 'owner'}}] )
+┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "instagram","url": `${myweb}`}},{"urlButton": {"displayText": "Script🔖","url": `${sc}`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "👤Owner👤","id": 'owner'}}] )
 break
 case 'searchmenu':
 var unicorn = await getBuffer(picak+'Search Menu')
@@ -4054,7 +4054,7 @@ await GojoMdNx.send5ButImg(from, `` + '' + ' ', `
 ┃╠${prefix}ringtone [query]
 ┃╠${prefix}webtoon [query]
 ┃╚═════════════𖡝
-┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "YouTube📍","url": `${myweb}`}},{"urlButton": {"displayText": "Script🔖","url": `${sc}`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "👤Owner👤","id": 'owner'}}] )
+┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "instagram","url": `${myweb}`}},{"urlButton": {"displayText": "Script🔖","url": `${sc}`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "👤Owner👤","id": 'owner'}}] )
 break
 case 'randommenu':
 var unicorn = await getBuffer(picak+'Random Menu')
@@ -4065,7 +4065,7 @@ await GojoMdNx.send5ButImg(from, `` + '' + ' ', `
 ┃╠${prefix}animequote (indo)
 ┃╠${prefix}couplepp
 ┃╚═════════════𖡝
-┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "YouTube📍","url": `${myweb}`}},{"urlButton": {"displayText": "Script🔖","url": `${sc}`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "👤Owner👤","id": 'owner'}}] )
+┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "instagram","url": `${myweb}`}},{"urlButton": {"displayText": "Script🔖","url": `${sc}`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "👤Owner👤","id": 'owner'}}] )
 break
 case 'randomanimemenu':
 var unicorn = await getBuffer(picak+'Random Anime Menu')
@@ -4100,7 +4100,7 @@ await GojoMdNx.send5ButImg(from, `` + '' + ' ', `
 ┃╠${prefix}dance
 ┃╠${prefix}cringe
 ┃╚═════════════𖡝
-┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "YouTube📍","url": `${myweb}`}},{"urlButton": {"displayText": "Script🔖","url": `${sc}`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "👤Owner👤","id": 'owner'}}] )
+┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "instagram","url": `${myweb}`}},{"urlButton": {"displayText": "Script🔖","url": `${sc}`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "👤Owner👤","id": 'owner'}}] )
 break
 case 'textpromenu':
 var unicorn = await getBuffer(picak+'Text Pro Menu')
@@ -4139,7 +4139,7 @@ await GojoMdNx.send5ButImg(from, `` + '' + ' ', `
 ┃╠ ${prefix}blackpink [txt]
 ┃╠ ${prefix}gluetext [txt]
 ┃╚═════════════𖡝
-┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "YouTube📍","url": `${myweb}`}},{"urlButton": {"displayText": "Script🔖","url": `${sc}`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "👤Owner👤","id": 'owner'}}] )
+┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "instagram","url": `${myweb}`}},{"urlButton": {"displayText": "Script🔖","url": `${sc}`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "👤Owner👤","id": 'owner'}}] )
 break
 case 'convertmenu':
 var unicorn = await getBuffer(picak+'Converter Menu')
@@ -4158,7 +4158,7 @@ await GojoMdNx.send5ButImg(from, `` + '' + ' ', `
 ┃╠ ${prefix}ebinary [reply txt]
 ┃╠ ${prefix}dbinary [reply txt]
 ┃╚═════════════𖡝
-┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "YouTube📍","url": `${myweb}`}},{"urlButton": {"displayText": "Script🔖","url": `${sc}`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "👤Owner👤","id": 'owner'}}] )
+┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "instagram","url": `${myweb}`}},{"urlButton": {"displayText": "Script🔖","url": `${sc}`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "👤Owner👤","id": 'owner'}}] )
 break
 case 'databasemenu':
 var unicorn = await getBuffer(picak+'Database Menu')
@@ -4174,7 +4174,7 @@ await GojoMdNx.send5ButImg(from, `` + '' + ' ', `
 ┃╠ ${prefix}getmsg
 ┃╠ ${prefix}delmsg
 ┃╚═════════════𖡝
-┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "YouTube📍","url": `${myweb}`}},{"urlButton": {"displayText": "Script🔖","url": `${sc}`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "👤Owner👤","id": 'owner'}}] )
+┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "instagram","url": `${myweb}`}},{"urlButton": {"displayText": "Script🔖","url": `${sc}`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "👤Owner👤","id": 'owner'}}] )
 break
 case 'databasemenu':
 var unicorn = await getBuffer(picak+'Database Menu')
@@ -4186,7 +4186,7 @@ await GojoMdNx.send5ButImg(from, `` + '' + ' ', `
 ┃╠${prefix}next
 ┃╠${prefix}leave
 ┃╚═════════════𖡝
-┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "YouTube📍","url": `${myweb}`}},{"urlButton": {"displayText": "Script🔖","url": `${sc}`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "👤Owner👤","id": 'owner'}}] )
+┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "instagram","url": `${myweb}`}},{"urlButton": {"displayText": "Script🔖","url": `${sc}`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "👤Owner👤","id": 'owner'}}] )
 break
 case 'islamicmenu':
 var unicorn = await getBuffer(picak+'Islamic Menu')
@@ -4195,7 +4195,7 @@ await GojoMdNx.send5ButImg(from, `` + '' + ' ', `
 ┃╔══𖡝「 ISLAMIC 」	        
 ┃╠${prefix}juzamma
 ┃╚═════════════𖡝
-┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "YouTube📍","url": `${myweb}`}},{"urlButton": {"displayText": "Script🔖","url": `${sc}`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "👤Owner👤","id": 'owner'}}] )
+┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "instagram","url": `${myweb}`}},{"urlButton": {"displayText": "Script🔖","url": `${sc}`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "👤Owner👤","id": 'owner'}}] )
 break
 case 'voicechangermenu':
 var unicorn = await getBuffer(picak+'Voice Changer Menu')
@@ -4214,7 +4214,7 @@ await GojoMdNx.send5ButImg(from, `` + '' + ' ', `
 ┃╠${prefix}slow [reply aud]
 ┃╠${prefix}squirrel [reply aud]
 ┃╚═════════════𖡝
-┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "YouTube📍","url": `${myweb}`}},{"urlButton": {"displayText": "Script🔖","url": `${sc}`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "👤Owner👤","id": 'owner'}}] )
+┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "instagram","url": `${myweb}`}},{"urlButton": {"displayText": "Script🔖","url": `${sc}`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "👤Owner👤","id": 'owner'}}] )
 break
 case 'horoscopemenu':
 var unicorn = await getBuffer(picak+'Horoscope Menu')
@@ -4252,7 +4252,7 @@ await GojoMdNx.send5ButImg(from, `` + '' + ' ', `
 ┃╠${prefix}zodiak (indo)
 ┃╠${prefix}shio (indo)
 ┃╚═════════════𖡝
-┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "YouTube📍","url": `${myweb}`}},{"urlButton": {"displayText": "Script🔖","url": `${sc}`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "👤Owner👤","id": 'owner'}}] )
+┗━━「 ${pushname} 」━⭓`,unicorn, [{"urlButton": {"displayText": "instagram","url": `${myweb}`}},{"urlButton": {"displayText": "Script🔖","url": `${sc}`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "👤Owner👤","id": 'owner'}}] )
 break
 case 'thanksto': case 'tqto': case 'tqtt':
 var unicorn = await getBuffer(picak+'Developer')
@@ -4260,7 +4260,7 @@ await GojoMdNx.send5ButImg(from, `` + '' + ' ', `
 Thanks to Me ( NexusNw)
 Alien-Alfa (For helping me to deploy qr in replit and answered my every doubts regard this project)
 DGXeon ( 45% Credits goes to him ,in this script)
-And Again Me (King Nexus 🎉) 𖡝 Who Helped Assemble This Sexy Script !!!`,unicorn, [{"urlButton": {"displayText": "YouTube📍","url": `${myweb}`}},{"urlButton": {"displayText": "Script🔖","url": `${sc}`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "👤Owner👤","id": 'owner'}}] )
+And Again Me (King Nexus 🎉) 𖡝 Who Helped Assemble This Sexy Script !!!`,unicorn, [{"urlButton": {"displayText": "instagram","url": `${myweb}`}},{"urlButton": {"displayText": "Script🔖","url": `${sc}`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "👤Owner👤","id": 'owner'}}] )
 break
             default:
                 if (budy.startsWith('=>')) {
