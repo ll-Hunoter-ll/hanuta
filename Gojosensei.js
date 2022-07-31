@@ -1131,17 +1131,17 @@ Please @${m.mentionedJid[0].split`@`[0]} To Type Accept/Reject`
 		
 		
             case 'kuismath': case 'math': {
-                if (kuismath.hasOwnProperty(m.sender.split('@')[0])) return replay(`Es gibt noch unfertige Sitzungen!`)
+                if (kuismath.hasOwnProperty(m.sender.split('@')[0])) return replay(`There Are Still Unfinished Sessions!`)
                 let { genMath, modes } = require('./lib/math')
-                if (!text) return replay(`Mode: ${Object.keys(modes).join(' | ')}\nFür Examples: ${prefix}math medium`)
+                if (!text) return replay(`Mode: ${Object.keys(modes).join(' | ')}\nFor Examples: ${prefix}math medium`)
                 let result = await genMath(text.toLowerCase())
-                GojoMdNx.sendText(m.chat, `*Was ist das Ergebnis von: ${result.soal.toLowerCase()}*?\n\nTime: ${(result.waktu / 1000).toFixed(2)} zweite`, m).then(() => {
+                GojoMdNx.sendText(m.chat, `*What Is The Result Of: ${result.soal.toLowerCase()}*?\n\nTime: ${(result.waktu / 1000).toFixed(2)} second`, m).then(() => {
                     kuismath[m.sender.split('@')[0]] = result.jawaban
                 })
                 await sleep(result.waktu)
                 if (kuismath.hasOwnProperty(m.sender.split('@')[0])) {
-                    console.log("Antworten: " + result.jawaban)
-                    reply("Zeitüberschreitung\nAntwort: " + kuismath[m.sender.split('@')[0]])
+                    console.log("Answer: " + result.jawaban)
+                    reply("Time Out\nAnswer: " + kuismath[m.sender.split('@')[0]])
                     delete kuismath[m.sender.split('@')[0]]
                 }
             }
@@ -1151,7 +1151,7 @@ Please @${m.mentionedJid[0].split`@`[0]} To Type Accept/Reject`
             let member = participants.map(u => u.id)
             let me = m.sender
             let jodoh = member[Math.floor(Math.random() * member.length)]
-            let jawab = `👫dein soulmate ist
+            let jawab = `👫Your Match Is
 
 @${me.split('@')[0]} ❤️ @${jodoh.split('@')[0]}`
             let ments = [me, jodoh]
@@ -1161,13 +1161,13 @@ Please @${m.mentionedJid[0].split`@`[0]} To Type Accept/Reject`
                     await GojoMdNx.sendButtonText(m.chat, buttons, jawab, GojoMdNx.user.name, m, {mentions: ments})
             }
             break
-            case 'paar': {
+            case 'couple': {
             if (!m.isGroup) return replay(`${mess.group}`)
             let member = participants.map(u => u.id)
             let orang = member[Math.floor(Math.random() * member.length)]
             let jodoh = member[Math.floor(Math.random() * member.length)]
             let jawab = `@${orang.split('@')[0]} ❤️ @${jodoh.split('@')[0]}
-sheshhhh, was geht da ab
+Cieeee, What's Going On❤️💖👀`
             let menst = [orang, jodoh]
             let buttons = [
                         { buttonId: '❤️', buttonText: { displayText: '❤️' }, type: 1 }
@@ -1175,53 +1175,53 @@ sheshhhh, was geht da ab
                     await GojoMdNx.sendButtonText(m.chat, buttons, jawab, GojoMdNx.user.name, m, {mentions: menst})
             }
             break
-            case 'ist':
-				if (!text) return replay(`Use Text, Example : ${prefix + command} er heiratet `)
-					const apa = [`Ja`, `nein`, `Es könnte sein`, `Das stimmt`]
-					const kah = apa[Math.floor(Math.random() * apa.length)]
-GojoMdNx.sendMessage(from, { text: `Question : Ist ${q}\nAnswer : ${kah}` }, { quoted: m })
-
-					break
-					            case 'was':
+            case 'is':
 				if (!text) return replay(`Use Text, Example : ${prefix + command} he married `)
-					const lel = [`frag deine freundin`, `ich weiss nicht`, `Ich weiß es nicht, frag deinen Vater`]
+					const apa = [`Yes`, `No`, `It Could Be`, `Thats right`]
+					const kah = apa[Math.floor(Math.random() * apa.length)]
+GojoMdNx.sendMessage(from, { text: `Question : Is ${q}\nAnswer : ${kah}` }, { quoted: m })
+
+					break
+					            case 'what':
+				if (!text) return replay(`Use Text, Example : ${prefix + command} he married `)
+					const lel = [`Ask Your Gf`, `I Dont Know`, `I Don't Know, Ask Your Father`]
 					const kahk = lel[Math.floor(Math.random() * lel.length)]
-GojoMdNx.sendMessage(from, { text: `Frage : Was ${q}\nAnswer : ${kahk}` }, { quoted: m })
+GojoMdNx.sendMessage(from, { text: `Question : What ${q}\nAnswer : ${kahk}` }, { quoted: m })
 
 					break
-case 'darf':
+case 'can':
 				if (!text) return replay(`Use Text, Example : ${prefix + command} you fuck her lol `)
-					const bisa = [`er kann`,`darf nicht`,`Kann nicht`,`Natürlich kannst du!!!`]
+					const bisa = [`Can`,`Can't`,`Cannot`,`Of Course You Can!!!`]
 					const ga = bisa[Math.floor(Math.random() * bisa.length)]
-GojoMdNx.sendMessage(from, { text: `Question : dürfen ${q}\nAnswer : ${ga}` }, { quoted: m })
+GojoMdNx.sendMessage(from, { text: `Question : Can ${q}\nAnswer : ${ga}` }, { quoted: m })
 
 					break
-case 'wie':
-				if (!text) return replay(`Text verwenden, Example : ${prefix + command} ist mein Gesicht`)
-					const gimana = [`Es ist okay`, `Es ist schwierig, Bruder`,`Tut mir leid, Bot kann nicht antworten`, `Versuchen Sie es mit der Suche auf Google`,`Heiliger Bimbam! Wirklich???`,`Schwindel Ah`,`Ohhh ich sehe:(`,`Der Patient, Chef:(`,`Wie gehts?`]
+case 'how':
+				if (!text) return replay(`Use Text, Example : ${prefix + command} is my face`)
+					const gimana = [`It's Okay`, `It's Difficult Bro`, `Sorry Bot Can't Answer`, `Try Searching On Google`,`Holy Cow! Really???`,`Dizzy Ah`,`Ohhh I See:(`,`The Patient, Boss:(`,`How Are You?`]
 					const ya = gimana[Math.floor(Math.random() * gimana.length)]
-GojoMdNx.sendMessage(from, { text: `Frage : ${q}\nAntwort : Wie ${ya}` }, { quoted: m })
+GojoMdNx.sendMessage(from, { text: `Question : ${q}\nAnswer : How ${ya}` }, { quoted: m })
 
 					break
 case 'rate':
-				if (!text) return replay(`Text verwenden, Example : ${prefix + command} My Dp`)
+				if (!text) return replay(`Use Text, Example : ${prefix + command} My Dp`)
 					const ra = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
 					const te = ra[Math.floor(Math.random() * ra.length)]
-GojoMdNx.sendMessage(from, { text: `Rate : ${q}\nAntwort : *${te}%*` }, { quoted: m })
+GojoMdNx.sendMessage(from, { text: `Rate : ${q}\nAnswer : *${te}%*` }, { quoted: m })
 
 					break
   case 'handsomecheck':
-				if (!text) return replay(`Markiere jemanden, Example : ${prefix + command} @tag`)
+				if (!text) return replay(`Tag Someone, Example : ${prefix + command} @Xeon`)
 					const gan = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
 					const teng = gan[Math.floor(Math.random() * gan.length)]
-GojoMdNx.sendMessage(from, { text: `*${command}*\n\nName : ${q}\nAntwort : *${teng}%*` }, { quoted: m })
+GojoMdNx.sendMessage(from, { text: `*${command}*\n\nName : ${q}\nAnswer : *${teng}%*` }, { quoted: m })
 
 					break
 case 'beautifulcheck':
 				if (!text) return replay(`Tag Someone, Example : ${prefix + command} @Xeon`)
 					const can = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
 					const tik = can[Math.floor(Math.random() * can.length)]
-GojoMdNx.sendMessage(from, { text: `*${command}*\n\nName : ${q}\nAntwort : *${tik}%*` }, { quoted: m })
+GojoMdNx.sendMessage(from, { text: `*${command}*\n\nNama : ${q}\nAnswer : *${tik}%*` }, { quoted: m })
 
 					break
 case 'awesomecheck':
@@ -1234,16 +1234,16 @@ case 'awesomecheck':
                  case 'prettycheck':
                     case 'lovelycheck':
                       case 'uglycheck':
-				if (!text) return replay(`Markiere jemanden, Example : ${prefix + command} @tag`)
+				if (!text) return replay(`Tag Someone, Example : ${prefix + command} @Xeon`)
 					const sangeh = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
 					const sange = sangeh[Math.floor(Math.random() * sangeh.length)]
-GojoMdNx.sendMessage(from, { text: `*${command}*\n\nName : ${q}\nAntwort : *${sange}%*` }, { quoted: m })
+GojoMdNx.sendMessage(from, { text: `*${command}*\n\nName : ${q}\nAnswer : *${sange}%*` }, { quoted: m })
 					break
 					case 'charactercheck':
-					if (!text) return replay(`Markiere jemanden, Example : ${prefix + command} @tag`)
-					const xeony =['Mitfühlend','Großzügig','Mürrisch','Versöhnlich','Gehorsam','Gut','Einfach','Gutherzig','Geduldig','UwU','top, immer','Hilfreich']
+					if (!text) return replay(`Tag Someone, Example : ${prefix + command} @Xeon`)
+					const xeony =['Compassionate','Generous','Grumpy','Forgiving','Obedient','Good','Simp','Kind-Hearted','patient','UwU','top, anyway','Helpful']
 					const taky = xeony[Math.floor(Math.random() * xeony.length)]
-					GojoMdNx.sendMessage(from, { text: `Character Check : ${q}\nAntwort : *${taky}*` }, { quoted: m })
+					GojoMdNx.sendMessage(from, { text: `Character Check : ${q}\nAnswer : *${taky}*` }, { quoted: m })
 				     break
                     case 'stupid':
       case 'foolish':
@@ -1313,11 +1313,11 @@ GojoMdNx.sendMessage(from, { text: `*${command}*\n\nName : ${q}\nAntwort : *${sa
                     await GojoMdNx.sendButtonText(m.chat, buttons, jawab, GojoMdNx.user.name, m, {mentions: ments})
             }
             break
-case 'wenn':
-				if (!text) return replay(`Text verwenden, Example : ${prefix + command} werde ich heiraten `)
-					const kapan = ['5 mehr Tage', '10 mehr Tage', '15 mehr Tage','20 mehr Tage', '25 mehr Tage','30 mehr Tage','35 mehr Tage','40 mehr Tage','45 mehr Tage','50 mehr Tage','55 mehr Tage','60 mehr Tage','65 mehr Tage','70 mehr Tage','75 mehr Tage','80 mehr Tage','85 mehr Tage','90 mehr Tage','100 mehr Tage','5 Monate mehr', '10 Monate mehr', '15 Monate mehr','20 Monate mehr', '25 Monate mehr','30 Monate mehr','35 Monate mehr','40 Monate mehr','45 Monate mehr','50 Monate mehr','55 Monate mehr','60 Monate mehr','65 Monate mehr','70 Monate mehr','75 Monate mehr','80 Monate mehr','85 Monate mehr','90 Monate mehr','100 Monate mehr','1 Mehr jahr','2 mehr Jahre','3 mehr Jahre','4 mehr Jahre','5 mehr Jahre','Morgen','Übermorgen',`Nach diesem Befehl, Du auch ${q}`]
+case 'when':
+				if (!text) return replay(`Use Text, Example : ${prefix + command} will i get married `)
+					const kapan = ['5 More Days', '10 More Days', '15 More Days','20 More Days', '25 More Days','30 More Days','35 More Days','40 More Days','45 More Days','50 More Days','55 More Days','60 More Days','65 More Days','70 More Days','75 More Days','80 More Days','85 More Days','90 More Days','100 More Days','5 Months More', '10 Months More', '15 Months More','20 Months More', '25 Months More','30 Months More','35 Months More','40 Months More','45 Months More','50 Months More','55 Months More','60 Months More','65 Months More','70 Months More','75 Months More','80 Months More','85 Months More','90 Months More','100 Months More','1 More Year','2 More Years','3 More Years','4 More Years','5 More Years','Tomorrow','The Day After Tomorrow',`After This Command, You Too ${q}`]
 					const kapankah = kapan[Math.floor(Math.random() * kapan.length)]
-GojoMdNx.sendMessage(from, { text: `Frage : ${q}\nAntwort : *${kapankah}*` }, { quoted: m })
+GojoMdNx.sendMessage(from, { text: `Question : ${q}\nAnswer : *${kapankah}*` }, { quoted: m })
 					break
 case 'wangy':
               if (!text) return replay(`Text verwenden, Example : ${prefix + command} hinata`)
