@@ -1234,70 +1234,70 @@ case 'awesomecheck':
                  case 'prettycheck':
                     case 'lovelycheck':
                       case 'uglycheck':
-				if (!text) return replay(`Tag Someone, Example : ${prefix + command} @Xeon`)
+				if (!text) return replay(`Markiere jemanden, Example : ${prefix + command} @tag`)
 					const sangeh = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
 					const sange = sangeh[Math.floor(Math.random() * sangeh.length)]
-GojoMdNx.sendMessage(from, { text: `*${command}*\n\nName : ${q}\nAnswer : *${sange}%*` }, { quoted: m })
+GojoMdNx.sendMessage(from, { text: `*${command}*\n\nName : ${q}\nAntwort : *${sange}%*` }, { quoted: m })
 					break
 					case 'charactercheck':
-					if (!text) return replay(`Tag Someone, Example : ${prefix + command} @Xeon`)
-					const xeony =['Compassionate','Generous','Grumpy','Forgiving','Obedient','Good','Simp','Kind-Hearted','patient','UwU','top, anyway','Helpful']
+					if (!text) return replay(`Markiere jemanden, Example : ${prefix + command} @tag`)
+					const xeony =['Mitfühlend','Großzügig','Mürrisch','Versöhnlich','Gehorsam','Gut','Einfach','Gutherzig','Geduldig','UwU','top, immer','Hilfreich']
 					const taky = xeony[Math.floor(Math.random() * xeony.length)]
-					GojoMdNx.sendMessage(from, { text: `Character Check : ${q}\nAnswer : *${taky}*` }, { quoted: m })
+					GojoMdNx.sendMessage(from, { text: `Character Check : ${q}\nAntwort : *${taky}*` }, { quoted: m })
 				     break
                     case 'stupid':
-      case 'töricht':
-      case 'Clever':
+      case 'foolish':
+      case 'smart':
       case 'idiot':
       case 'gay':
       case 'lesbi':
       case 'bastard':
-      case 'Stoppel':
-      case 'Hund':
+      case 'stubble':
+      case 'dog':
       case 'fuck':
-      case 'Affe':
+      case 'ape':
       case 'noob':
-      case 'Großartig':
+      case 'great':
       case 'horny':
-      case 'Unkraut':
-      case 'Arschloch':
-      case 'gutaussehend':
-      case 'schön':
-      case 'niedlich':
-      case 'nett':
-      case 'hässlich':
-      case 'hübsch':
-      case 'lesbisch':
-      case 'Randi':
-      case 'Tribut':
-      case 'Mutterfucker':
-      case 'getrennt':
+      case 'wibu':
+      case 'asshole':
+      case 'handsome':
+      case 'beautiful':
+      case 'cute':
+      case 'kind':
+      case 'ugly':
+      case 'pretty':
+      case 'lesbian':
+      case 'randi':
+      case 'gandu':
+      case 'madarchod':
+      case 'kala':
       case 'gora':
-      case 'Warteschlange':
-      case 'Nibba':
-      case 'knabberig':
-      case 'Bhosdiwale':
-      case 'chutemarika':
-      case 'Dumm':
-      case 'Suarerbacha':
-      case 'Quatsch':
-      case 'Zuerst':
-      case 'Oszillator':
-      case 'Schurke':
-      case 'Arzt':
-      case 'Fotze':
-      case 'Streber':
-      case 'Schwesterficker':
+      case 'chutiya':
+      case 'nibba':
+      case 'nibbi':
+      case 'bhosdiwala':
+      case 'chutmarika':
+      case 'bokachoda':
+      case 'suarerbaccha':
+      case 'bolochoda':
+      case 'muthal':
+      case 'muthbaaz':
+      case 'randibaaz':
+      case 'topibaaz':
+      case 'cunt':
+      case 'nerd':
+      case 'behenchod':
       case 'behnchoda':
-      case 'Bhosdika':
+      case 'bhosdika':
       case 'bc':
       case 'nerd':
       case 'mc':
-      case 'Busstraße':
+      case 'bsdk':
       case 'bhosdk':
       case 'nigger':
       case 'loda':
-      case 'Scholle':
+      case 'laund':
       case 'nigga':
       case 'sexy':
       case 'hot': {
@@ -1305,7 +1305,7 @@ GojoMdNx.sendMessage(from, { text: `*${command}*\n\nName : ${q}\nAnswer : *${san
             let member = participants.map(u => u.id)
             let me = m.sender
             let jodoh = member[Math.floor(Math.random() * member.length)]
-            let jawab = `Am meisten *${command}* Hier ist @${jodoh.split('@')[0]}`
+            let jawab = `The Most *${command}* Here Is @${jodoh.split('@')[0]}`
             let ments = [me, jodoh]
             let buttons = [
                         { buttonId: '👀', buttonText: { displayText: '👀😂' }, type: 1 }
