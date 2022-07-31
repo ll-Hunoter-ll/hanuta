@@ -1,7 +1,6 @@
 //═══════════════════════════════════════════════════════//
 //
-//                              𝙶𝙾𝙹𝙾-𝚂𝙰𝚃𝙾𝚁𝚄 𝓫𝔂 𝓷𝓮𝔁𝓾𝓼𝓝𝔀
-//𝙰𝙳𝙾𝙿𝚃𝙴𝙳 𝙵𝚁𝙾𝙼  𝚂𝙲𝚁𝙸𝙿𝚃 𝙾𝙵 𝙲𝙷𝙴𝙴𝙼𝚂𝙱𝙾𝚃 𝚅2 𝙱𝚈 𝙳𝙶𝚇𝚎𝚘𝚗 
+//                              𖡝ŞƤ͢σƤ𖡝Ƀ͢σͲ𖡝
 //
 //════════════════════════════//
 
@@ -19,32 +18,32 @@ global.APIKeys = {
 }
 
 //customize settings\\
-global.owner = ['Your Number']
+global.owner = ['31620000112','491731000070']
 global.premium = ['Your Number']
-global.ownernomer = 'Your Number'
-global.ownername = '🐦Star Boy Nexus'
-global.botname = 'Gojo-Satoru'
-global.footer = '©NexusNwInc.'
-global.ig = 'https://github.com/nexusNw'
+global.ownernomer = '+31 6 20000112'
+global.ownername = 'Hunoter-Mheg'
+global.botname = '𖡝ŞƤ͢σƤ𖡝Ƀ͢σͲ𖡝'
+global.footer = '©SPoPBotTeam.'
+global.ig = 'https://github.com/ll-Hunoter-ll'
 global.region = 'India, South India, Kerala'
 global.sc = 'https://github.com/nexusNw/Gojo-Satoru'
-global.myweb = 'https://youtube.com/channel/UCqoUjPvDdb0kjXNYdvPPpHQ'
-global.packname = 'Gojo-Satoru'
-global.author = '🐦Star Boy Nexus'
+global.myweb = 'https://instagram.com/mheg'
+global.packname = 'Hunoter'
+global.author = 'SPoP bot'
 global.sessionName = 'session'
 global.prefa = ['','!','.','🐦','🐤','🗿']
 global.sp = '⭔'
 global.mess = {
     success: 'Done ✓',
-    admin: 'This Feature Is Only For Admin!',
-    botAdmin: 'Bot Must Be Admin First!',
-    owner: 'This Feature Is Only For Owner!',
-    group: 'Feature Used Only For Groups!',
-    private: 'Features Used Only For Private Chat!',
-    bot: 'This Feature Is Only For Bot',
-    wait: 'Wait A minute...',
-    error: 'Error! Maybe Api Key Is Expired🤔!',
-    endLimit: 'Your Daily Limit Has Expired, The Limit Will Be Reset Every 12 Hours',
+    admin: 'Diese Funktion ist nur für Administratoren!',
+    botAdmin: 'Bot muss zuerst Admin sein!',
+    owner: 'Diese Funktion ist nur für Besitzer!',
+    group: 'Funktion wird nur für Gruppen verwendet!',
+    private: 'Funktionen, die nur für den privaten Chat verwendet werden!',
+    bot: 'Diese Funktion ist nur für Bot',
+    wait: 'Warten Sie eine Minute...',
+    error: 'Fehler! Vielleicht ist der Api-Schlüssel abgelaufen🤔!',
+    endLimit: 'Ihr Tageslimit ist abgelaufen, das Limit wird alle 12 Stunden zurückgesetzt',
 }
     global.limitawal = {
     premium: "Infinity",
