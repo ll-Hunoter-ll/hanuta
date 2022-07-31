@@ -18,15 +18,15 @@ global.APIKeys = {
 }
 
 //customize settings\\
-global.owner = ['31620000112','491731000070']
+global.owner = ['31620000112','4917310000070']
 global.premium = ['Your Number']
 global.ownernomer = '+31 6 20000112'
 global.ownername = 'Hunoter-Mheg'
 global.botname = '𖡝ŞƤ͢σƤ𖡝Ƀ͢σͲ𖡝'
 global.footer = '©SPoPBotTeam.'
-global.ig = 'https://github.com/ll-Hunoter-ll'
-global.region = 'India, South India, Kerala'
-global.sc = 'https://github.com/nexusNw/Gojo-Satoru'
+global.ig = 'https://Instagram.com/mheg
+global.region = 'german, essen'
+global.sc = 'was geht bei dir so?'
 global.myweb = 'https://instagram.com/mheg'
 global.packname = '𖡝ŞƤ͢σƤ𖡝Ƀ͢σͲ𖡝'
 global.author = 'Hunoter'

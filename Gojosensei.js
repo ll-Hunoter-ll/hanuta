@@ -498,8 +498,8 @@ Typed *surrender* to surrender and admited defeat`
 
 Please Choose A Suit In The Respective Chat"
 Click https://wa.me/${botNumber.split`@`[0]}`, m, { mentions: [roof.p, roof.p2] })
-	    if (!roof.pilih) GojoMdNx.sendText(roof.p, `Please Select \n\Stein🗿\nPapier📄\nSchere✂️`, m)
-	    if (!roof.pilih2) GojoMdNx.sendText(roof.p2, `Please Select \n\nStein🗿\nPapier📄\nSchere✂️`, m)
+	    if (!roof.pilih) GojoMdNx.sendText(roof.p, `Bitte auswählen \n\Stein🗿\nPapier📄\nSchere✂️`, m)
+	    if (!roof.pilih2) GojoMdNx.sendText(roof.p2, `Bitte auswählen \n\nStein🗿\nPapier📄\nSchere✂️`, m)
 	    roof.waktu_milih = setTimeout(() => {
 	    if (!roof.pilih && !roof.pilih2) GojoMdNx.sendText(m.chat, `Beide Spieler wollen nicht spielen,\nSuit Canceled`)
 	    else if (!roof.pilih || !roof.pilih2) {
@@ -519,13 +519,13 @@ Click https://wa.me/${botNumber.split`@`[0]}`, m, { mentions: [roof.p, roof.p2] 
 	    if (jwb && reg.test(m.text) && !roof.pilih && !m.isGroup) {
 	    roof.pilih = reg.exec(m.text.toLowerCase())[0]
 	    roof.text = m.text
-	    reply(`You Have Chosen ${m.text} ${!roof.pilih2 ? `\n\nWaiting For The Opponent To Choose` : ''}`)
-	    if (!roof.pilih2) GojoMdNx.sendText(roof.p2, '_The Opponent Has Chosen_\nNow It Is Your Turn', 0)
+	    reply(`Du hast gewählt ${m.text} ${!roof.pilih2 ? `\n\nWaiting For The Opponent To Choose` : ''}`)
+	    if (!roof.pilih2) GojoMdNx.sendText(roof.p2, '_Der Gegner hat gewählt_\nJetzt sind Sie dran', 0)
 	    }
 	    if (jwb2 && reg.test(m.text) && !roof.pilih2 && !m.isGroup) {
 	    roof.pilih2 = reg.exec(m.text.toLowerCase())[0]
 	    roof.text2 = m.text
-	    reply(`You Have Chosen ${m.text} ${!roof.pilih ? `\n\nWaiting For The Opponent To Choose` : ''}`)
+	    reply(`Du hast gewählt ${m.text} ${!roof.pilih ? `\n\nWaiting For The Opponent To Choose` : ''}`)
 	    if (!roof.pilih) GojoMdNx.sendText(roof.p, '_Der Gegner hat gewählt_\nJetzt sind Sie dran', 0)
 	    }
 	    let stage = roof.pilih
@@ -892,16 +892,16 @@ if (q.includes('--help')) return reply(examkosong)
                 let user = global.db.data.users[m.sender]
                 user.afkTime = + new Date
                 user.afkReason = text
-                reply(`${m.pushName} Has Gone Afk/Offline${text ? ': ' + text : ''}`)
+                reply(`${m.pushName} Ist Afk/Offline gegangen${text ? ': ' + text : ''}`)
             }
             break	
         case 'ttc': case 'ttt': case 'tictactoe': {
             let TicTacToe = require("./lib/tictactoe")
             this.game = this.game ? this.game : {}
-            if (Object.values(this.game).find(room => room.id.startsWith('tictactoe') && [room.game.playerX, room.game.playerO].includes(m.sender))) return replay(`You Are Still In The Game`)
+            if (Object.values(this.game).find(room => room.id.startsWith('tictactoe') && [room.game.playerX, room.game.playerO].includes(m.sender))) return replay(`Sie sind immer noch im Spiel`)
             let room = Object.values(this.game).find(room => room.state === 'WAITING' && (text ? room.name === text : true))
             if (room) {
-            reply('Partner found!')
+            reply('Partner gefunden!')
             room.o = m.chat
             room.game.playerO = m.sender
             room.state = 'PLAYING'
@@ -940,7 +940,7 @@ Type *surrender* to surrender and admit defeat`
             state: 'WAITING'
             }
             if (text) room.name = text
-            reply('Waiting For Partner' + (text ? ` Type The Command Below ${prefix}${command} ${text}` : ''))
+            reply('warte auf Partner' + (text ? ` Type The Command Below ${prefix}${command} ${text}` : ''))
             this.game[room.id] = room
             }
             }
@@ -950,9 +950,9 @@ Type *surrender* to surrender and admit defeat`
             try {
             if (this.game) {
             delete this.game
-            GojoMdNx.sendText(m.chat, `Successfully Deleted The TicTacToe Session`, m)
+            GojoMdNx.sendText(m.chat, `Die TicTacToe-Sitzung wurde erfolgreich gelöscht`, m)
             } else if (!this.game) {
-            reply(`TicTacToe🎮 Session Does Not Exist`)
+            reply(`TicTacToe🎮 Sitzung existiert nicht`)
             } else reply('?')
             } catch (e) {
             reply('Damaged')
@@ -964,10 +964,10 @@ Type *surrender* to surrender and admit defeat`
             let poin = 10
             let poin_lose = 10
             let timeout = 60000
-            if (Object.values(this.suit).find(roof => roof.id.startsWith('suit') && [roof.p, roof.p2].includes(m.sender))) return replay(`Complete Your Previous Suit`)
-	    if (m.mentionedJid[0] === m.sender) return reply(`Can't Play With Myself !`)
-            if (!m.mentionedJid[0]) return reply(`_Who Do You Want To Challenge?_\nTag The Person..\n\nExample : ${prefix}suit @${owner[1]}`, m.chat, { mentions: [owner[1] + '@s.whatsapp.net'] })
-            if (Object.values(this.suit).find(roof => roof.id.startsWith('suit') && [roof.p, roof.p2].includes(m.mentionedJid[0])))  reply(`The Person You Are Challenging Is Playing Suit With Someone Else :(`)
+            if (Object.values(this.suit).find(roof => roof.id.startsWith('suit') && [roof.p, roof.p2].includes(m.sender))) return replay(`Vervollständigen Sie Ihre vorherige Suit`)
+	    if (m.mentionedJid[0] === m.sender) return reply(`Kann nicht mit mir selbst spielen !`)
+            if (!m.mentionedJid[0]) return reply(`_Wen möchten Sie herausfordern??_\nMarkiere die Person..\n\nExample : ${prefix}suit @${owner[1]}`, m.chat, { mentions: [owner[1] + '@s.whatsapp.net'] })
+            if (Object.values(this.suit).find(roof => roof.id.startsWith('suit') && [roof.p, roof.p2].includes(m.mentionedJid[0])))  reply(`Die Person, die Sie herausfordern, spielt mit jemand anderem Suit :(`)
             let id = 'suit_' + new Date() * 1
             let caption = `_*SUIT PvP*_
 
@@ -1179,7 +1179,7 @@ shesshhh, was geht da ab`
 				if (!text) return replay(`Use Text, Example : ${prefix + command} he married `)
 					const apa = [`Ja`, `Nein`, `Es könnte sein`, `bist du schwul?`, `begeh mal selbstmord`]
 					const kah = apa[Math.floor(Math.random() * apa.length)]
-GojoMdNx.sendMessage(from, { text: `Frage : Ist ${q}\nAntwort : ${kah}` }, { quoted: m })
+GojoMdNx.sendMessage(from, { text: `Frage : ${q}\nAntwort : ${kah}` }, { quoted: m })
 
 					break
 					            case 'what':
